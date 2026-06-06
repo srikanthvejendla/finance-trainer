@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Data Load</title>
+</head>
+<body>
+  <h1>Testing Data Load</h1>
+  <div id="status">Loading...</div>
+  <script src="data.js"></script>
+  <script>
+    setTimeout(() => {
+      const status = document.getElementById('status');
+      if (typeof DATA !== 'undefined') {
+        status.innerHTML = `
+          <h2>✓ DATA loaded successfully</h2>
+          <p>Nav groups: ${DATA.nav.length}</p>
+          <p>Lessons: ${Object.keys(DATA.lessons).length}</p>
+          <p>Has glossary: ${DATA.lessons.glossary ? 'Yes' : 'No'}</p>
+          <p>Has calculators: ${DATA.lessons.calculators ? 'Yes' : 'No'}</p>
+          <p>Has simulator: ${DATA.lessons.simulator ? 'Yes' : 'No'}</p>
+        `;
+      } else {
+        status.innerHTML = '<h2>✗ DATA not loaded</h2>';
+      }
+    }, 100);
+  </script>
+</body>
+</html>
