@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>FinLearn — Investment & Finance Mastery</title>
+  <meta name="description" content="Master stocks, bonds, options, mutual funds, and investment strategies. Interactive learning platform with real examples, calculators, and simulations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80' fill='%23166534'>📈</text></svg>" />
+</head>
+<body>
+  <div id="grain"></div>
+
+  <button id="navToggle" aria-label="Toggle navigation">☰</button>
+
+  <aside id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">💰</div>
+      <div class="brand-text">
+        <h1>FinLearn</h1>
+        <p>Investment Mastery</p>
+      </div>
+    </div>
+
+    <nav id="nav"><!-- nav links injected --></nav>
+
+    <div class="sidebar-foot">
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Your progress</span><span id="progPct">0%</span></div>
+        <div class="progress-track"><div id="progBar" class="progress-bar"></div></div>
+        <p id="progHint">Complete lessons to advance your financial literacy.</p>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main">
+    <header id="topbar">
+      <div class="crumbs"><span id="crumbSection">Home</span></div>
+      <div class="top-actions">
+        <span class="kicker" id="topKicker">Beginner → Expert Investor</span>
+      </div>
+    </header>
+    <div id="view"><!-- view injected --></div>
+    <footer id="footer">
+      <span>FinLearn · Master your money</span>
+      <span class="sep">·</span>
+      <span>Educational resource. Always consult a financial advisor before investing.</span>
+    </footer>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
