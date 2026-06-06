@@ -546,11 +546,18 @@
   // ============================================================
   // START APP
   // ============================================================
-  window.addEventListener('DOMContentLoaded', init);
+  function safeInit(){
+    try {
+      init();
+    } catch(e){
+      console.error('Init error:', e);
+    }
+  }
+
   if(document.readyState === 'loading'){
-    // DOM still loading, wait for DOMContentLoaded
+    window.addEventListener('DOMContentLoaded', safeInit);
   } else {
-    // DOM already loaded, init immediately
-    init();
+    // DOM already loaded, init with small delay to ensure everything is ready
+    setTimeout(safeInit, 0);
   }
 })();
