@@ -1385,7 +1385,7 @@ Call value = [0.50 × $24.76 + 0.50 × $3.81] / 1.05 = $14.285 / 1.05 = $13.62</
 <p>Professional options trading is fundamentally about Greeks mastery. Professional traders think in Greeks, manage by Greeks, and execute strategies based on Greeks. The ability to understand, calculate, and manage Greeks across complex portfolios is what separates professionals from amateurs. The key insights to carry forward are: (1) professional trading is a high-volume, low-margin business; (2) Greeks-neutral management is the foundation of professional risk control; (3) frequent rehedging requires sophisticated technology and discipline; (4) volatility trading is often more profitable than directional trading; (5) basis trading exploits specific valuation relationships; (6) stress testing reveals hidden risks and concentrations; and (7) automation enables tight Greeks management at scale.</p>`
         }
       ]
-    },
+    }
     // ============================================================
     // BONDS (Tier 1 - Complete from previous)
     // ============================================================
