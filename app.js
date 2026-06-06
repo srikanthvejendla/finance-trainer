@@ -1,4 +1,4 @@
-window.initApp = (() => {
+(() => {
   // Utility functions
   const $ = id => document.getElementById(id);
   const $$ = (sel, root) => (root || document).querySelectorAll(sel);
@@ -546,20 +546,6 @@ window.initApp = (() => {
   // ============================================================
   // START APP
   // ============================================================
-  function safeInit(){
-    try {
-      init();
-    } catch(e){
-      console.error('Init error:', e);
-    }
-  }
-
-  if(document.readyState === 'loading'){
-    window.addEventListener('DOMContentLoaded', safeInit);
-  } else {
-    // DOM already loaded, init with small delay to ensure everything is ready
-    setTimeout(safeInit, 0);
-  }
-
-  return { init: safeInit };
+  // Initialize immediately (scripts are at end of body so DOM is ready)
+  init();
 })();
