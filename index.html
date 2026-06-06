@@ -51,7 +51,21 @@
     </footer>
   </main>
 
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+  <script>
+    // Ensure app initializes even if DOMContentLoaded already fired
+    function ensureInit(){
+      if(typeof window.appInitialized === 'undefined'){
+        window.appInitialized = true;
+        if(typeof init === 'function') init();
+      }
+    }
+    if(document.readyState === 'loading'){
+      window.addEventListener('DOMContentLoaded', ensureInit);
+    } else {
+      ensureInit();
+    }
+  </script>
 </body>
 </html>
