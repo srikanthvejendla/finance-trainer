@@ -176,7 +176,7 @@
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
           <span style="font-size: 28px;">${lesson.icon}</span>
           <div>
-            <p class="eyebrow">${lesson.tier.charAt(0).toUpperCase() + lesson.tier.slice(1)} Level</p>
+            <p class="eyebrow">${lesson.tier ? lesson.tier.charAt(0).toUpperCase() + lesson.tier.slice(1) : 'Professional'} Level</p>
             <h1 style="margin: 0;">${lesson.title}</h1>
           </div>
         </div>
