@@ -547,4 +547,10 @@
   // START APP
   // ============================================================
   window.addEventListener('DOMContentLoaded', init);
+  if(document.readyState === 'loading'){
+    // DOM still loading, wait for DOMContentLoaded
+  } else {
+    // DOM already loaded, init immediately
+    init();
+  }
 })();
