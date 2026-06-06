@@ -17,11 +17,16 @@
   // INITIALIZATION
   // ============================================================
   function init(){
+    console.log('init() called');
     buildNav();
     updateProgress();
     $('navToggle').onclick = () => $('sidebar').classList.toggle('open');
-    window.addEventListener('hashchange', route);
+    window.addEventListener('hashchange', () => {
+      console.log('hashchange event fired, new hash:', location.hash);
+      route();
+    });
     if(!location.hash) location.hash = '#/home';
+    console.log('Calling initial route()');
     route();
   }
 
@@ -55,6 +60,7 @@
 
   function route(){
     const hash = location.hash.slice(2) || 'home';
+    console.log('route() called with hash:', hash);
     state.currentLesson = hash;
 
     // Update active nav link
@@ -67,6 +73,7 @@
     const lesson = DATA.lessons[hash];
     $('crumbSection').textContent = lesson?.title || 'Home';
 
+    console.log('Calling renderView with:', hash);
     renderView(hash);
   }
 
