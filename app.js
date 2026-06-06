@@ -1,8 +1,11 @@
 (() => {
+  console.log('App starting...');
   // Utility functions
   const $ = id => document.getElementById(id);
   const $$ = (sel, root) => (root || document).querySelectorAll(sel);
   const $s = (sel, root) => (root || document).querySelector(sel);
+
+  console.log('DOM check:', { nav: $('nav'), view: $('view'), sidebar: $('sidebar') });
 
   let state = {
     currentLesson: null,
@@ -26,7 +29,13 @@
   // NAVIGATION
   // ============================================================
   function buildNav(){
+    console.log('buildNav called, DATA:', typeof DATA);
     const nav = $('nav');
+    if (!nav) {
+      console.error('nav element not found!');
+      return;
+    }
+    console.log('nav element found, building...');
     nav.innerHTML = DATA.nav.map(g => `
       <div class="nav-group-label">${g.group}</div>
       ${g.items.map(i => `
