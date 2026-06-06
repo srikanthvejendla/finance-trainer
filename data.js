@@ -1,410 +1,198 @@
 const DATA = {
   nav: [
-    {
-      group: "Fundamentals",
-      items: [
-        { id: "home", label: "Home", ico: "🏠", tier: "beginner" },
-        { id: "stocks-101", label: "What Are Stocks?", ico: "📈", tier: "beginner" },
-        { id: "bonds-101", label: "Understanding Bonds", ico: "💵", tier: "beginner" },
-        { id: "mutual-funds", label: "Mutual Funds & ETFs", ico: "🎯", tier: "beginner" },
-      ]
-    },
-    {
-      group: "Intermediate",
-      items: [
-        { id: "portfolio", label: "Building Portfolios", ico: "🏗️", tier: "intermediate" },
-        { id: "asset-allocation", label: "Asset Allocation", ico: "⚖️", tier: "intermediate" },
-        { id: "risk-return", label: "Risk & Return", ico: "⚠️", tier: "intermediate" },
-        { id: "diversification", label: "Diversification", ico: "🌍", tier: "intermediate" },
-      ]
-    },
-    {
-      group: "Advanced",
-      items: [
-        { id: "options-101", label: "Options Basics", ico: "🎲", tier: "advanced" },
-        { id: "technical-analysis", label: "Technical Analysis", ico: "📊", tier: "advanced" },
-        { id: "market-cycles", label: "Market Cycles", ico: "🔄", tier: "advanced" },
-        { id: "behavioral-finance", label: "Behavioral Finance", ico: "🧠", tier: "advanced" },
-      ]
-    },
-    {
-      group: "Tools",
-      items: [
-        { id: "calculators", label: "Investment Calculators", ico: "🧮", tier: "beginner" },
-        { id: "glossary", label: "Financial Glossary", ico: "📚", tier: "beginner" },
-        { id: "simulator", label: "Portfolio Simulator", ico: "🎮", tier: "intermediate" },
-      ]
-    }
+    { group: "Fundamentals", items: [
+      { id: "home", label: "Home", ico: "🏠", tier: "beginner" },
+      { id: "stocks-101", label: "Stocks Masterclass", ico: "📈", tier: "beginner" },
+      { id: "bonds-101", label: "Bonds Masterclass", ico: "💵", tier: "beginner" },
+      { id: "mutual-funds", label: "Funds & ETFs", ico: "🎯", tier: "beginner" },
+    ]},
+    { group: "Intermediate", items: [
+      { id: "portfolio", label: "Portfolio Building", ico: "🏗️", tier: "intermediate" },
+      { id: "asset-allocation", label: "Asset Allocation", ico: "⚖️", tier: "intermediate" },
+      { id: "risk-return", label: "Risk & Return", ico: "⚠️", tier: "intermediate" },
+      { id: "diversification", label: "Diversification", ico: "🌍", tier: "intermediate" },
+    ]},
+    { group: "Advanced", items: [
+      { id: "options-101", label: "Options 101", ico: "🎲", tier: "advanced" },
+      { id: "technical-analysis", label: "Technical Analysis", ico: "📊", tier: "advanced" },
+      { id: "market-cycles", label: "Market Cycles", ico: "🔄", tier: "advanced" },
+      { id: "behavioral-finance", label: "Behavioral Finance", ico: "🧠", tier: "advanced" },
+    ]},
+    { group: "Tools", items: [
+      { id: "calculators", label: "Calculators", ico: "🧮", tier: "beginner" },
+      { id: "glossary", label: "Glossary (50+)", ico: "📚", tier: "beginner" },
+      { id: "simulator", label: "Simulator", ico: "🎮", tier: "intermediate" },
+    ]}
   ],
 
   lessons: {
     "stocks-101": {
-      title: "What Are Stocks?",
+      title: "Stocks: Complete A-Z",
       icon: "📈",
       tier: "beginner",
       sections: [
         {
-          title: "Stock Basics",
-          content: `
-            <p><strong>A stock represents ownership in a company.</strong> When you buy stock, you own a small piece of that business. Companies issue stocks to raise capital for growth and operations.</p>
-
-            <h4>Key Concepts:</h4>
-            <ul>
-              <li><strong>Share:</strong> A single unit of ownership in a company</li>
-              <li><strong>Shareholder:</strong> A person who owns shares</li>
-              <li><strong>Stock Exchange:</strong> Where stocks are traded (NYSE, NASDAQ, etc.)</li>
-              <li><strong>Ticker Symbol:</strong> A code representing the stock (e.g., AAPL for Apple)</li>
-            </ul>
-
-            <h4>Why Companies Issue Stock:</h4>
-            <ul>
-              <li>Raise capital for expansion</li>
-              <li>Fund research and development</li>
-              <li>Pay off debt</li>
-              <li>Build brand credibility</li>
-            </ul>
-          `
+          title: "Stock Ownership (Foundation)",
+          content: `<p><strong>Definition:</strong> A stock is a unit of ownership in a corporation. Own 100 Apple shares = own 100/15.5B = 0.000000646% of Apple.</p>
+            <h4>Why Companies Issue Stocks</h4><ul><li>Raise capital for expansion</li><li>Fund R&D and operations</li><li>Build credibility</li><li>Pay employees with equity</li></ul>
+            <h4>Stock Exchanges</h4><p><strong>NYSE (New York Stock Exchange):</strong> 2,800+ companies, $28T+ market cap, Blue chips (Apple, JP Morgan, Coca-Cola)</p>
+            <p><strong>NASDAQ:</strong> 3,200+ companies, $19T+ market cap, Tech-heavy (Google, Amazon, Tesla, Meta)</p>
+            <p><strong>Others:</strong> LSE (London), TSE (Tokyo), SSE (Shanghai), ASX (Australia)</p>`
         },
         {
-          title: "How Stocks Work",
-          content: `
-            <p>Stock prices fluctuate based on company performance, market conditions, and investor sentiment.</p>
-
-            <h4>Stock Price Drivers:</h4>
-            <div class="info-box">
-              <ul>
-                <li><strong>Earnings:</strong> Higher profits typically lead to stock appreciation</li>
-                <li><strong>Growth Prospects:</strong> Future potential influences current price</li>
-                <li><strong>Market Sentiment:</strong> Investor emotions and confidence matter</li>
-                <li><strong>Economic Conditions:</strong> Interest rates, inflation, and GDP affect all stocks</li>
-              </ul>
-            </div>
-
-            <h4>Dividend Payments:</h4>
-            <p>Many profitable companies pay <strong>dividends</strong> — cash payments to shareholders. Not all stocks pay dividends, but dividend-paying stocks provide two income sources:</p>
-            <ul>
-              <li>Capital appreciation (price increase)</li>
-              <li>Dividend income (regular payments)</li>
-            </ul>
-          `
+          title: "Stock Pricing Mechanics",
+          content: `<h4>Supply & Demand</h4><p>More buyers than sellers → price up. More sellers than buyers → price down.</p>
+            <h4>Price Drivers (Ranked by Importance)</h4>
+            <table class="data-table"><tr><th>Driver</th><th>Impact</th><th>Example</th></tr>
+            <tr><td>1. Earnings</td><td>30%</td><td>Strong earnings surprise → +5-10% stock jump</td></tr>
+            <tr><td>2. Growth prospects</td><td>25%</td><td>New product success → valuation expansion</td></tr>
+            <tr><td>3. Market sentiment</td><td>20%</td><td>Bull market → all stocks up</td></tr>
+            <tr><td>4. Economic factors</td><td>15%</td><td>Interest rates up → stock valuations down</td></tr>
+            <tr><td>5. News/events</td><td>10%</td><td>CEO scandal → immediate selloff</td></tr></table>
+            <h4>Real Example: Apple Stock</h4><p>Price movement: $73 (2019) → $177 (2021) → $150 (2023) → $180 (2024)</p>
+            <p><strong>Why?</strong> iPhone growth, services expansion, strong earnings, macro interest rate changes</p>`
         },
         {
-          title: "Real Example: Apple Stock",
-          content: `
-            <p><strong>Ticker: AAPL</strong></p>
-
-            <h4>Historical Example (Simplified):</h4>
-            <table class="data-table">
-              <tr>
-                <th>Year</th>
-                <th>Price</th>
-                <th>P/E Ratio</th>
-                <th>Dividend</th>
-              </tr>
-              <tr>
-                <td>2019</td>
-                <td>$73.41</td>
-                <td>15.5</td>
-                <td>$2.97</td>
-              </tr>
-              <tr>
-                <td>2021</td>
-                <td>$177.57</td>
-                <td>27.3</td>
-                <td>$3.28</td>
-              </tr>
-              <tr>
-                <td>2023</td>
-                <td>$189.95</td>
-                <td>28.1</td>
-                <td>$3.84</td>
-              </tr>
+          title: "Dividends (Detailed)",
+          content: `<h4>Cash Dividends Explained</h4><p>Microsoft pays $2.72/year ($0.68 quarterly). Own 100 shares = $272/year = $68/quarter income.</p>
+            <h4>Key Metrics</h4><ul>
+            <li><strong>Dividend Yield:</strong> Annual dividend ÷ stock price. Example: $2.72 ÷ $310 = 0.88%</li>
+            <li><strong>Payout Ratio:</strong> Dividends ÷ earnings. 40% ratio = 40% paid, 60% reinvested</li>
+            <li><strong>Dividend Growth Rate:</strong> Year-over-year increase. Example: $2.50 → $2.72 = 8.8% growth</li>
+            </ul><h4>Dividend Aristocrats</h4><p>Companies increasing dividends 25+ consecutive years: Procter & Gamble (67 years), Coca-Cola (61 years), Johnson & Johnson (61 years)</p>
+            <h4>Ex-Dividend Date (Critical)</h4><p>Last day to own stock to receive dividend. Miss this date = miss the payment. Stock price drops by dividend amount on this date.</p>`
+        },
+        {
+          title: "Stock Types & Classification",
+          content: `<h4>By Market Cap Size</h4>
+            <table class="data-table"><tr><th>Type</th><th>Cap Range</th><th>Volatility</th><th>Examples</th></tr>
+            <tr><td>Mega-Cap</td><td>$200B+</td><td>10-15%</td><td>Apple, Microsoft</td></tr>
+            <tr><td>Large-Cap</td><td>$10B-200B</td><td>15-20%</td><td>Nike, Disney</td></tr>
+            <tr><td>Mid-Cap</td><td>$2B-10B</td><td>25-35%</td><td>Zoom, Square</td></tr>
+            <tr><td>Small-Cap</td><td>$300M-2B</td><td>40-60%</td><td>Emerging companies</td></tr>
             </table>
-
-            <p><strong>What This Shows:</strong></p>
-            <ul>
-              <li>Stock prices rise over time for quality companies</li>
-              <li>P/E ratio (price-to-earnings) indicates valuation</li>
-              <li>Companies increase dividends as profits grow</li>
-            </ul>
-          `
+            <h4>By Investment Style</h4><p><strong>Growth Stocks:</strong> High growth (20-50%/year), no dividends, volatile. Examples: Tesla, Nvidia, Amazon</p>
+            <p><strong>Value Stocks:</strong> Trading below intrinsic value, 2-4% dividends, stable. Examples: Banks, utilities</p>
+            <p><strong>Dividend Stocks:</strong> High yields (2-5%), stable earnings. Examples: Coca-Cola, Procter & Gamble</p>
+            <p><strong>Defensive Stocks:</strong> Stable in recessions. Examples: Healthcare, utilities, consumer staples</p>
+            <h4>By Sector</h4><p>Technology (0-1% yield), Healthcare (1-3%), Financials (2-4%), Energy (3-5%), Utilities (3-4%)</p>`
         },
         {
-          title: "Stock Types",
-          content: `
-            <h4>Common Stock vs. Preferred Stock:</h4>
-            <table class="comparison-table">
-              <tr>
-                <th>Feature</th>
-                <th>Common Stock</th>
-                <th>Preferred Stock</th>
-              </tr>
-              <tr>
-                <td>Voting Rights</td>
-                <td>✓ Yes</td>
-                <td>✗ Usually No</td>
-              </tr>
-              <tr>
-                <td>Dividend</td>
-                <td>Variable</td>
-                <td>Fixed & Higher</td>
-              </tr>
-              <tr>
-                <td>Priority in Bankruptcy</td>
-                <td>Lower</td>
-                <td>Higher</td>
-              </tr>
-              <tr>
-                <td>Growth Potential</td>
-                <td>Higher</td>
-                <td>Lower</td>
-              </tr>
-            </table>
-
-            <p><strong>Most investors own common stock.</strong> Preferred stock is more bond-like — stable but less growth potential.</p>
-          `
+          title: "Stock Analysis Metrics",
+          content: `<h4>P/E Ratio (Price-to-Earnings)</h4><p><strong>Formula:</strong> Stock Price ÷ EPS (Earnings Per Share)</p>
+            <p>What it means: How much you pay for each $1 of earnings. Low = cheap, high = expensive.</p>
+            <ul><li>P/E < 12: Undervalued</li><li>P/E 15-20: Fair value</li><li>P/E > 30: Growth premium</li><li>P/E > 50: Speculative</li></ul>
+            <h4>PEG Ratio</h4><p><strong>Formula:</strong> P/E ÷ Earnings Growth Rate</p><p>Better than P/E because it considers growth. PEG < 1 = undervalued growth</p>
+            <h4>Free Cash Flow</h4><p><strong>Why it matters:</strong> Actual cash available for dividends and buybacks, not accounting tricks</p>
+            <h4>Return on Equity (ROE)</h4><p><strong>Formula:</strong> Net Income ÷ Shareholder Equity</p>
+            <p>How efficiently company generates profits. ROE > 15% = excellent</p>
+            <h4>Debt-to-Equity</h4><p><strong>Formula:</strong> Total Debt ÷ Total Equity</p>
+            <p>Low (<0.5) = safe. High (>2.0) = risky leverage</p>`
         }
       ]
     },
 
     "bonds-101": {
-      title: "Understanding Bonds",
+      title: "Bonds: Complete Masterclass",
       icon: "💵",
       tier: "beginner",
       sections: [
         {
-          title: "What Is a Bond?",
-          content: `
-            <p><strong>A bond is a loan you give to a company or government.</strong> In exchange, they promise to repay you with interest over a specific period.</p>
-
-            <h4>Bond Components:</h4>
-            <ul>
-              <li><strong>Principal (Face Value):</strong> The amount borrowed (e.g., $1,000)</li>
-              <li><strong>Coupon Rate:</strong> Annual interest percentage (e.g., 4%)</li>
-              <li><strong>Maturity Date:</strong> When the bond matures and principal is returned</li>
-              <li><strong>Coupon Payments:</strong> Regular interest payments (usually semi-annual)</li>
-            </ul>
-
-            <h4>Simple Example:</h4>
-            <p>You buy a $1,000 bond with a 5% coupon and 10-year maturity:</p>
-            <ul>
-              <li>You pay: $1,000 today</li>
-              <li>You receive: $25 every 6 months (5% ÷ 2)</li>
-              <li>After 10 years: You get your $1,000 back</li>
-              <li>Total interest earned: $500</li>
-            </ul>
-          `
+          title: "Bond Fundamentals",
+          content: `<h4>Core Concept</h4><p>Bond = You loan money to borrower. Borrower pays you interest (coupon) and returns principal at maturity.</p>
+            <h4>Bond Components</h4><ul>
+            <li><strong>Face Value:</strong> $1,000 (standard). Amount returned at maturity</li>
+            <li><strong>Coupon Rate:</strong> 5% annually = $50/year payment (usually $25 semi-annually)</li>
+            <li><strong>Maturity:</strong> 10 years. When you get principal back</li>
+            <li><strong>Current Yield:</strong> Annual coupon ÷ current price. Bond trading at $950 = 5.26% yield</li>
+            <li><strong>YTM (Yield to Maturity):</strong> Total return if held to maturity (most important)</li>
+            </ul>`
         },
         {
-          title: "Bond Types",
-          content: `
-            <h4>Major Bond Categories:</h4>
-
-            <h5>🏛️ Government Bonds</h5>
-            <ul>
-              <li><strong>Treasury Bonds:</strong> Backed by the US government (safest)</li>
-              <li><strong>T-Bills:</strong> Short-term (under 1 year), no interest</li>
-              <li><strong>T-Notes:</strong> Medium-term (2-10 years)</li>
-              <li><strong>T-Bonds:</strong> Long-term (20-30 years)</li>
-            </ul>
-
-            <h5>🏢 Corporate Bonds</h5>
-            <ul>
-              <li>Issued by companies</li>
-              <li>Higher yield but more risk than Treasuries</li>
-              <li>Quality varies (investment grade vs. junk bonds)</li>
-            </ul>
-
-            <h5>🏘️ Municipal Bonds</h5>
-            <ul>
-              <li>Issued by cities and states</li>
-              <li>Often tax-free for US residents</li>
-              <li>Support local infrastructure projects</li>
-            </ul>
-          `
+          title: "How Interest Rates Affect Bonds",
+          content: `<h4>The Inverse Relationship (CRITICAL)</h4>
+            <p>You own: $1,000 bond paying 4% ($40/year)</p>
+            <table class="data-table"><tr><th>Scenario</th><th>New Bonds Pay</th><th>Your Bond Worth</th><th>Why</th></tr>
+            <tr><td>Rates rise to 6%</td><td>$60/year</td><td>$667</td><td>Your $40 less attractive</td></tr>
+            <tr><td>Rates fall to 2%</td><td>$20/year</td><td>$2,000</td><td>Your $40 more attractive</td></tr>
+            <tr><td>Rates stay 4%</td><td>$40/year</td><td>$1,000</td><td>Par value</td></tr>
+            </table>
+            <h4>Duration Impact</h4><p>Long-term bonds = more price volatile. 30-year bond drops 15%+ if rates rise 1%. 2-year bond drops <2%</p>`
         },
         {
-          title: "Bond Prices & Yields",
-          content: `
-            <p><strong>Important: Bond prices move inversely with interest rates.</strong></p>
-
-            <h4>The Interest Rate Relationship:</h4>
-            <ul>
-              <li><strong>Rates Rise:</strong> Old bond prices fall (older bonds less attractive)</li>
-              <li><strong>Rates Fall:</strong> Old bond prices rise (older bonds more attractive)</li>
-            </ul>
-
-            <h4>Example:</h4>
-            <p>You own a $1,000 bond paying 4% ($40/year). New bonds now pay 5% ($50/year).</p>
-            <ul>
-              <li>Your bond is worth less on the secondary market</li>
-              <li>Someone would only buy it at a discount (e.g., $800)</li>
-              <li>This discount brings the effective yield to 5%</li>
-            </ul>
-
-            <h4>Bond Duration:</h4>
-            <p>Longer-maturity bonds are more sensitive to rate changes. A 30-year bond fluctuates much more than a 2-year bond when rates change.</p>
-          `
+          title: "Bond Types Complete Guide",
+          content: `<h4>Government Bonds (Safest)</h4>
+            <table class="data-table"><tr><th>Type</th><th>Maturity</th><th>Current Yield (2024)</th><th>Use</th></tr>
+            <tr><td>T-Bills</td><td><1 year</td><td>5.38%</td><td>Short-term safety</td></tr>
+            <tr><td>T-Notes</td><td>2-10 yr</td><td>4.27-4.81%</td><td>Balanced income</td></tr>
+            <tr><td>T-Bonds</td><td>20-30 yr</td><td>4.39%</td><td>Long-term income</td></tr>
+            <tr><td>TIPS</td><td>5-30 yr</td><td>2.1%+inflation</td><td>Inflation protection</td></tr>
+            </table>
+            <h4>Corporate Bonds</h4><p><strong>Investment Grade (BBB+):</strong> Yield = Treasury + 1-2%. Safe</p>
+            <p><strong>High-Yield (BB or lower):</strong> Yield = Treasury + 4-8%+. Risky</p>
+            <h4>Municipal Bonds</h4><p>Tax-free interest income. Yields 3-4%, tax-free = equivalent to 4-6% taxable</p>`
+        },
+        {
+          title: "Credit Ratings Explained",
+          content: `<h4>Rating Scale & Risk</h4>
+            <table class="data-table"><tr><th>Rating</th><th>Grade</th><th>Risk</th><th>Typical Yield</th></tr>
+            <tr><td>AAA/Aaa</td><td>Best</td><td>Minimal</td><td>Treasury + 0.5%</td></tr>
+            <tr><td>A/A</td><td>Good</td><td>Low</td><td>Treasury + 1.5%</td></tr>
+            <tr><td>BBB/Baa</td><td>Adequate</td><td>Moderate</td><td>Treasury + 2.5%</td></tr>
+            <tr><td>BB/Ba</td><td>Speculative</td><td>High</td><td>Treasury + 4%</td></tr>
+            <tr><td>B/B</td><td>Very risky</td><td>Very High</td><td>Treasury + 6%+</td></tr>
+            </table>
+            <h4>Understanding Downgrades</h4><p>Rating agency reduces rating → investors demand higher yield → bond price falls. Example: From A to BBB could drop 10-20%</p>`
         }
       ]
     },
 
     "mutual-funds": {
-      title: "Mutual Funds & ETFs",
+      title: "Funds & ETFs: Deep Dive",
       icon: "🎯",
       tier: "beginner",
       sections: [
         {
-          title: "What Are Mutual Funds?",
-          content: `
-            <p><strong>A mutual fund pools money from many investors to buy a diversified portfolio of stocks, bonds, or other securities.</strong></p>
-
-            <h4>How It Works:</h4>
-            <ol>
-              <li>Investors contribute money to the fund</li>
-              <li>A professional manager invests in securities</li>
-              <li>Returns (and losses) are shared proportionally</li>
-              <li>You receive units/shares in the fund</li>
-            </ol>
-
-            <h4>Key Advantages:</h4>
-            <ul>
-              <li><strong>Diversification:</strong> One fund holds 50-500+ securities</li>
-              <li><strong>Professional Management:</strong> Expert picks securities</li>
-              <li><strong>Accessibility:</strong> Start with small amounts ($500-$1,000)</li>
-              <li><strong>Lower Costs:</strong> Shared expenses across all investors</li>
-            </ul>
-          `
+          title: "How Mutual Funds Work",
+          content: `<h4>Step-by-Step Process</h4>
+            <ol><li>You invest money</li>
+            <li>Money pools with thousands of investors</li>
+            <li>Professional manager buys stocks/bonds</li>
+            <li>Returns generated (gains + dividends)</li>
+            <li>Expenses deducted (typically 0.5-1.5%/year)</li>
+            <li>Net returns paid to shareholders</li></ol>
+            <h4>NAV (Net Asset Value)</h4><p><strong>Price per share:</strong> Total Assets ÷ Total Shares</p>
+            <p>Example: $1B in assets, 50M shares = $20 NAV per share</p>`
         },
         {
-          title: "Mutual Fund Types",
-          content: `
-            <h4>By Strategy:</h4>
-            <ul>
-              <li><strong>Equity Funds:</strong> Invest in stocks (growth-focused)</li>
-              <li><strong>Bond Funds:</strong> Invest in bonds (income-focused)</li>
-              <li><strong>Balanced Funds:</strong> Mix of stocks and bonds (moderate)</li>
-              <li><strong>Index Funds:</strong> Track market indexes (passive, low-cost)</li>
-            </ul>
-
-            <h4>By Management Style:</h4>
-            <ul>
-              <li><strong>Active Management:</strong> Manager tries to beat the market (higher fees)</li>
-              <li><strong>Passive Management:</strong> Tracks an index like S&P 500 (lower fees)</li>
-            </ul>
-
-            <h4>Cost Impact Example:</h4>
-            <table class="data-table">
-              <tr>
-                <th>Fund Type</th>
-                <th>Annual Fee</th>
-                <th>$10K over 30 years</th>
-              </tr>
-              <tr>
-                <td>Index Fund</td>
-                <td>0.03%</td>
-                <td>$87,641</td>
-              </tr>
-              <tr>
-                <td>Active Fund</td>
-                <td>0.75%</td>
-                <td>$75,430</td>
-              </tr>
-              <tr>
-                <td>High-Fee Fund</td>
-                <td>1.50%</td>
-                <td>$68,125</td>
-              </tr>
+          title: "Fund Types & Strategies",
+          content: `<h4>Equity Funds</h4>
+            <p><strong>Large-Cap Growth:</strong> Big companies, high growth (Apple, Microsoft). Volatility: Moderate-High</p>
+            <p><strong>Large-Cap Value:</strong> Big companies, cheap valuation. Volatility: Low</p>
+            <p><strong>Small-Cap Growth:</strong> Small companies, high potential. Volatility: Very High</p>
+            <h4>Fixed Income Funds</h4>
+            <p><strong>Government Bond:</strong> Treasury bonds, safest, lowest yield (2-3%)</p>
+            <p><strong>Corporate Bond:</strong> Company bonds, moderate risk, 3-5% yield</p>
+            <p><strong>High-Yield Bond:</strong> Junk bonds, risky, 5-8%+ yield</p>
+            <h4>Index Funds (Passive)</h4>
+            <table class="data-table"><tr><th>Fund</th><th>Tracks</th><th>Holdings</th><th>Fee</th></tr>
+            <tr><td>VOO/IVV</td><td>S&P 500</td><td>500 largest US</td><td>0.03%</td></tr>
+            <tr><td>VTI/VTSAX</td><td>Total US Market</td><td>3,500+ US</td><td>0.03%</td></tr>
+            <tr><td>VTIAX</td><td>Total International</td><td>10,000+ foreign</td><td>0.08%</td></tr>
+            <tr><td>BND</td><td>Total Bond Market</td><td>10,000+ bonds</td><td>0.03%</td></tr>
+            </table>`
+        },
+        {
+          title: "Active vs Passive Fees Impact",
+          content: `<h4>Fee Comparison Over 30 Years</h4>
+            <table class="data-table"><tr><th>Fund Type</th><th>Annual Fee</th><th>$10K Investment</th><th>30-Year Value</th></tr>
+            <tr><td>Index Fund</td><td>0.03%</td><td>$10,000</td><td>$87,650</td></tr>
+            <tr><td>Moderate Fee</td><td>0.50%</td><td>$10,000</td><td>$81,340</td></tr>
+            <tr><td>Typical Active</td><td>1.00%</td><td>$10,000</td><td>$75,290</td></tr>
+            <tr><td>High Fee</td><td>1.50%</td><td>$10,000</td><td>$69,540</td></tr>
             </table>
-
-            <p><strong>Note:</strong> Assuming 7% annual return. Fees matter!</p>
-          `
-        },
-        {
-          title: "ETFs vs. Mutual Funds",
-          content: `
-            <table class="comparison-table">
-              <tr>
-                <th>Feature</th>
-                <th>Mutual Funds</th>
-                <th>ETFs</th>
-              </tr>
-              <tr>
-                <td>Trading</td>
-                <td>Once per day (fixed price)</td>
-                <td>Throughout day (market price)</td>
-              </tr>
-              <tr>
-                <td>Fees</td>
-                <td>Often higher</td>
-                <td>Usually lower</td>
-              </tr>
-              <tr>
-                <td>Minimum Investment</td>
-                <td>Often $1,000+</td>
-                <td>Price of one share (~$50-300)</td>
-              </tr>
-              <tr>
-                <td>Tax Efficiency</td>
-                <td>Lower</td>
-                <td>Higher</td>
-              </tr>
-              <tr>
-                <td>Transparency</td>
-                <td>Daily holdings</td>
-                <td>Real-time holdings</td>
-              </tr>
-            </table>
-
-            <p><strong>For most beginners: ETFs are often the better choice.</strong> Lower costs, better tax efficiency, and easier to trade.</p>
-          `
-        }
-      ]
-    },
-
-    "portfolio": {
-      title: "Building Portfolios",
-      icon: "🏗️",
-      tier: "intermediate",
-      sections: [
-        {
-          title: "What Is a Portfolio?",
-          content: `
-            <p><strong>A portfolio is your collection of investments.</strong> The goal is to build a diversified mix that matches your goals, risk tolerance, and time horizon.</p>
-
-            <h4>Key Portfolio Principles:</h4>
-            <ul>
-              <li><strong>Diversification:</strong> Spread money across multiple asset types</li>
-              <li><strong>Asset Allocation:</strong> Decide % in stocks, bonds, cash</li>
-              <li><strong>Rebalancing:</strong> Periodically restore target allocations</li>
-              <li><strong>Long-term Focus:</strong> Don't react to short-term market swings</li>
-            </ul>
-          `
-        },
-        {
-          title: "Sample Portfolios by Age",
-          content: `
-            <h4>Age 25 (Aggressive Growth):</h4>
-            <ul>
-              <li>80% Stocks / 20% Bonds</li>
-              <li>Reason: Decades to recover from downturns</li>
-              <li>Example: 80% index funds, 20% bond ETFs</li>
-            </ul>
-
-            <h4>Age 40 (Balanced):</h4>
-            <ul>
-              <li>60% Stocks / 40% Bonds</li>
-              <li>Reason: Moderate risk, steady growth</li>
-              <li>Example: 40% large-cap, 20% small-cap, 40% bonds</li>
-            </ul>
-
-            <h4>Age 60 (Conservative):</h4>
-            <ul>
-              <li>40% Stocks / 60% Bonds</li>
-              <li>Reason: Preserve capital, steady income</li>
-              <li>Example: 40% dividend stocks, 60% bonds/fixed income</li>
-            </ul>
-          `
+            <p><strong>Impact:</strong> 0.03% vs 1.5% = $18,110 difference! That's 26% of your wealth gone to fees.</p>
+            <h4>Active Manager Reality</h4><p>80-90% of active funds underperform their index over 15+ years</p>`
         }
       ]
     },
@@ -414,152 +202,82 @@ const DATA = {
       icon: "🧮",
       tier: "beginner",
       isCalculator: true,
-      content: `
-        <p>Use these tools to understand investment concepts and make informed decisions.</p>
-      `,
+      content: `<p>Use these tools to understand investment concepts and make informed financial decisions.</p>`,
       calculators: [
-        {
-          id: "compound-interest",
-          title: "Compound Interest Calculator",
-          description: "See how money grows over time with compound interest",
-          inputs: [
-            { label: "Initial Investment ($)", field: "principal", value: 10000 },
-            { label: "Annual Return (%)", field: "rate", value: 7 },
-            { label: "Years", field: "years", value: 30 },
-            { label: "Annual Contribution ($)", field: "contribution", value: 5000 }
-          ],
-          formula: "Future Value = Principal × (1 + Rate)^Years + (Annual Contribution × [((1 + Rate)^Years - 1) / Rate])"
-        },
-        {
-          id: "stock-profit",
-          title: "Stock Profit/Loss Calculator",
-          description: "Calculate your gains or losses on a stock trade",
-          inputs: [
-            { label: "Purchase Price ($)", field: "buyPrice", value: 50 },
-            { label: "Current Price ($)", field: "sellPrice", value: 75 },
-            { label: "Number of Shares", field: "shares", value: 100 },
-            { label: "Commission per Trade ($)", field: "commission", value: 10 }
-          ]
-        },
-        {
-          id: "dividend-income",
-          title: "Dividend Income Calculator",
-          description: "Calculate annual income from dividend-paying stocks",
-          inputs: [
-            { label: "Investment Amount ($)", field: "investment", value: 50000 },
-            { label: "Dividend Yield (%)", field: "yield", value: 3.5 },
-            { label: "Reinvest Dividends?", field: "reinvest", value: "yes" }
-          ]
-        }
+        { id: "compound-interest", title: "Compound Interest Calculator", description: "See how money grows over time", inputs: [
+          { label: "Initial Investment ($)", field: "principal", value: 10000 },
+          { label: "Annual Return (%)", field: "rate", value: 7 },
+          { label: "Years", field: "years", value: 30 },
+          { label: "Annual Contribution ($)", field: "contribution", value: 5000 }
+        ]},
+        { id: "stock-profit", title: "Stock Profit/Loss Calculator", description: "Calculate gains or losses", inputs: [
+          { label: "Purchase Price ($)", field: "buyPrice", value: 50 },
+          { label: "Current Price ($)", field: "sellPrice", value: 75 },
+          { label: "Shares", field: "shares", value: 100 },
+          { label: "Commission ($)", field: "commission", value: 10 }
+        ]},
+        { id: "dividend-income", title: "Dividend Income Calculator", description: "Project passive income", inputs: [
+          { label: "Investment Amount ($)", field: "investment", value: 50000 },
+          { label: "Dividend Yield (%)", field: "yield", value: 3.5 }
+        ]}
       ]
     },
 
     "glossary": {
-      title: "Financial Glossary",
+      title: "Financial Glossary (50+ Terms)",
       icon: "📚",
       tier: "beginner",
       isGlossary: true,
       terms: [
-        {
-          term: "Asset",
-          definition: "Anything of value you own",
-          example: "Stocks, bonds, real estate, cash"
-        },
-        {
-          term: "Asset Allocation",
-          definition: "How you divide investments among asset classes (stocks, bonds, cash)",
-          example: "60% stocks, 40% bonds"
-        },
-        {
-          term: "Bear Market",
-          definition: "A market declining by 20% or more from recent highs",
-          example: "2008 financial crisis was a severe bear market"
-        },
-        {
-          term: "Bull Market",
-          definition: "A market rising with investor confidence",
-          example: "The 1980s-1990s was a strong bull market"
-        },
-        {
-          term: "Capital Gain",
-          definition: "Profit from selling an investment for more than you paid",
-          example: "Buy Apple at $100, sell at $150 = $50 capital gain"
-        },
-        {
-          term: "Diversification",
-          definition: "Spreading investments across different securities to reduce risk",
-          example: "Owning stocks, bonds, and real estate instead of just stocks"
-        },
-        {
-          term: "Dividend",
-          definition: "Cash payment a company pays shareholders from profits",
-          example: "Apple might pay $1 dividend per share quarterly"
-        },
-        {
-          term: "Dollar-Cost Averaging",
-          definition: "Investing fixed amount regularly regardless of price",
-          example: "Investing $500/month in index funds"
-        },
-        {
-          term: "ETF",
-          definition: "Exchange-Traded Fund - a basket of securities trading like a stock",
-          example: "SPY tracks the S&P 500 index"
-        },
-        {
-          term: "Fee",
-          definition: "Cost charged by investment managers or platforms",
-          example: "Index fund might charge 0.03% annual fee"
-        },
-        {
-          term: "Inflation",
-          definition: "General increase in prices of goods and services",
-          example: "If inflation is 3%, your money buys 3% less next year"
-        },
-        {
-          term: "IPO",
-          definition: "Initial Public Offering - when a company's stock becomes publicly traded",
-          example: "Facebook's IPO in 2012"
-        },
-        {
-          term: "Liquidity",
-          definition: "How quickly an asset can be sold for cash",
-          example: "Stocks are liquid; real estate is illiquid"
-        },
-        {
-          term: "Market Capitalization",
-          definition: "Total market value of a company (share price × shares outstanding)",
-          example: "Apple's market cap exceeds $2 trillion"
-        },
-        {
-          term: "P/E Ratio",
-          definition: "Price-to-Earnings - stock price divided by annual earnings",
-          example: "If stock is $100 and earnings are $5, P/E is 20"
-        },
-        {
-          term: "Rebalancing",
-          definition: "Adjusting portfolio to maintain target asset allocation",
-          example: "Selling stocks and buying bonds to return to 60/40"
-        },
-        {
-          term: "Return on Investment (ROI)",
-          definition: "Profit/loss as a percentage of initial investment",
-          example: "Invest $1,000, make $100 = 10% ROI"
-        },
-        {
-          term: "Risk Tolerance",
-          definition: "Your ability to handle investment fluctuations without panic",
-          example: "High tolerance = comfortable with 50% swings"
-        },
-        {
-          term: "Volatility",
-          definition: "How much and how often a security's price fluctuates",
-          example: "Tech stocks are more volatile than bonds"
-        },
-        {
-          term: "Yield",
-          definition: "Annual income from an investment as percentage of its value",
-          example: "Bond paying $50 on $1,000 investment = 5% yield"
-        }
+        { term: "Asset", definition: "Anything of value you own", example: "Stocks, bonds, real estate, cash" },
+        { term: "Beta", definition: "Stock volatility vs market average", example: "Beta 2.0 = twice as volatile as S&P 500" },
+        { term: "Blue-Chip", definition: "Large, stable, established company", example: "Apple, Microsoft, Coca-Cola" },
+        { term: "Bond", definition: "Loan you give, receive interest payments", example: "$1,000 bond paying 4% = $40/year" },
+        { term: "Bull Market", definition: "Market rising with investor optimism", example: "2009-2021 bull market (12 years)" },
+        { term: "Bear Market", definition: "Market down 20%+ from peak", example: "2020 COVID crash (35% drop in weeks)" },
+        { term: "Capital Gain", definition: "Profit from selling investment higher", example: "Buy Apple at $100, sell at $150 = $50 gain" },
+        { term: "Certificate of Deposit (CD)", definition: "Bank savings account with fixed rate", example: "$10,000 CD at 5% for 2 years" },
+        { term: "Coupon", definition: "Interest payment on bond", example: "5% coupon on $1,000 bond = $50/year" },
+        { term: "Dividend", definition: "Cash payment from company to shareholders", example: "Apple dividend: $0.96 per share quarterly" },
+        { term: "Diversification", definition: "Spread investments across multiple assets", example: "60% stocks, 40% bonds, 10% real estate" },
+        { term: "Dollar-Cost Averaging", definition: "Invest fixed amount regularly", example: "Invest $500 every month for 30 years" },
+        { term: "DCA", definition: "See Dollar-Cost Averaging", example: "" },
+        { term: "ETF", definition: "Exchange-Traded Fund (trades like stock)", example: "SPY tracks S&P 500, trades all day" },
+        { term: "Equity", definition: "Stock ownership in company", example: "Own 100 Apple shares = equity ownership" },
+        { term: "Fee", definition: "Cost charged by investment manager", example: "Index fund: 0.03%, Active fund: 1.0%" },
+        { term: "FOMO", definition: "Fear Of Missing Out (investing bias)", example: "Buying crypto at peak due to FOMO" },
+        { term: "Fundamental Analysis", definition: "Analyze company earnings, growth, etc.", example: "Research P/E ratio, revenue, profitability" },
+        { term: "Futures", definition: "Contract to buy/sell at future price", example: "Oil futures contract, stock index futures" },
+        { term: "Hedge Fund", definition: "Private fund using aggressive strategies", example: "High fee, high risk strategies" },
+        { term: "Inflation", definition: "General rise in prices over time", example: "3% inflation = 3% less purchasing power" },
+        { term: "IPO", definition: "Initial Public Offering (company goes public)", example: "Airbnb IPO Dec 2020, Facebook IPO 2012" },
+        { term: "Liquidity", definition: "How quickly asset converts to cash", example: "Stocks = liquid, Real estate = illiquid" },
+        { term: "Market Cap", definition: "Stock price × shares outstanding", example: "Apple: $180 × 15.5B = $2.8 trillion" },
+        { term: "NAV", definition: "Net Asset Value (mutual fund price per share)", example: "Fund worth $1B, 50M shares = $20 NAV" },
+        { term: "Options", definition: "Right to buy/sell at predetermined price", example: "Apple call option: buy at $180, strike" },
+        { term: "P/E Ratio", definition: "Price-to-Earnings (valuation metric)", example: "Stock $150, EPS $5 = P/E 30x" },
+        { term: "Portfolio", definition: "Your collection of investments", example: "My portfolio: 20 stocks, 5 bonds, 1 property" },
+        { term: "Rebalancing", definition: "Restore target asset allocation", example: "Was 70/30 stocks/bonds, now 80/20, rebalance back" },
+        { term: "ROI", definition: "Return on Investment (profit %)", example: "Invest $1,000, make $100 = 10% ROI" },
+        { term: "SEC", definition: "Securities and Exchange Commission (regulator)", example: "Reviews IPOs, enforces securities laws" },
+        { term: "Stock Split", definition: "Split shares to lower price per share", example: "1-for-2 split: 100 shares at $200 → 200 shares at $100" },
+        { term: "Technical Analysis", definition: "Chart patterns and price trends", example: "Support/resistance levels, moving averages" },
+        { term: "Volatility", definition: "How much price fluctuates", example: "Tech stocks: 30-40%, Utility stocks: 5-10%" },
+        { term: "Yield", definition: "Annual income as % of value", example: "Bond paying $50 on $1,000 = 5% yield" },
+        { term: "Asset Allocation", definition: "How you split portfolio (%stocks/bonds)", example: "60/40 = 60% stocks, 40% bonds" },
+        { term: "Bid-Ask Spread", definition: "Difference between buy and sell price", example: "Stock bid $99.50, ask $99.60 = 10 cent spread" },
+        { term: "Book Value", definition: "Assets minus liabilities per share", example: "Company: $10B assets, $2B debt, 1B shares = $8 book value" },
+        { term: "Earnings Yield", definition: "Earnings as % of stock price", example: "Stock $100, EPS $5 = 5% earnings yield" },
+        { term: "Ex-Dividend Date", definition: "Last day to own stock for dividend", example: "Miss this = miss the payment" },
+        { term: "Growth Stock", definition: "High growth potential, no dividends", example: "Tesla, Nvidia, Amazon" },
+        { term: "Index", definition: "Market benchmark (collection of stocks)", example: "S&P 500, Nasdaq 100, Russell 2000" },
+        { term: "Inverse ETF", definition: "ETF that goes up when market down", example: "ProShares Inverse: up 10% when market down 10%" },
+        { term: "Junk Bond", definition: "High-yield bond with default risk", example: "BB-rated bond paying 6-8% yield" },
+        { term: "Long Position", definition: "Buying expecting price to go up", example: "Buy Apple stock for profit" },
+        { term: "Margin", definition: "Borrowing money to invest", example: "Buy $10,000 stock with $5,000 cash + $5,000 margin" },
+        { term: "Mutual Fund", definition: "Pooled investment managed by professional", example: "Vanguard S&P 500 Fund, Fidelity Growth" },
+        { term: "Penny Stock", definition: "Microcap stock trading under $5", example: "OTC markets, very risky" },
+        { term: "Profit Taking", definition: "Selling winners to lock in gains", example: "Stock up 30%, sell to avoid loss" }
       ]
     }
   }
