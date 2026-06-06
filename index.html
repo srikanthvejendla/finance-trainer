@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>FinLearn — Investment & Finance Mastery</title>
-  <meta name="description" content="Master stocks, bonds, options, mutual funds, and investment strategies. Interactive learning platform with real examples, calculators, and simulations." />
+  <title>FinLearn — Financial Knowledge Base</title>
+  <meta name="description" content="Comprehensive financial education platform. From fundamentals to advanced professional trading strategies." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,42 +14,60 @@
 <body>
   <div id="grain"></div>
 
-  <button id="navToggle" aria-label="Toggle navigation">☰</button>
-
+  <!-- LEFT SIDEBAR: Chapter Navigation -->
   <aside id="sidebar">
     <div class="brand">
       <div class="brand-mark">💰</div>
       <div class="brand-text">
         <h1>FinLearn</h1>
-        <p>Investment Mastery</p>
+        <p>Financial Knowledge Base</p>
       </div>
     </div>
 
-    <nav id="nav"><!-- nav links injected --></nav>
+    <div class="sidebar-search">
+      <input type="text" id="searchInput" placeholder="Search chapters..." />
+    </div>
+
+    <nav id="chapterNav" class="chapter-nav">
+      <!-- Chapter tree injected here -->
+    </nav>
 
     <div class="sidebar-foot">
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Your progress</span><span id="progPct">0%</span></div>
-        <div class="progress-track"><div id="progBar" class="progress-bar"></div></div>
-        <p id="progHint">Complete lessons to advance your financial literacy.</p>
-      </div>
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <a href="#/home" class="home-link">← Back to Home</a>
     </div>
   </aside>
 
+  <!-- MAIN CONTENT AREA -->
   <main id="main">
     <header id="topbar">
-      <div class="crumbs"><span id="crumbSection">Home</span></div>
+      <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+      <div class="breadcrumb" id="breadcrumb">
+        <span id="breadcrumbText">Home</span>
+      </div>
       <div class="top-actions">
-        <span class="kicker" id="topKicker">Beginner → Expert Investor</span>
+        <span class="reading-time" id="readingTime"></span>
       </div>
     </header>
-    <div id="view"><!-- view injected --></div>
+
+    <div id="view" class="content-container">
+      <!-- Main content injected here -->
+    </div>
+
     <footer id="footer">
-      <span>FinLearn · Master your money</span>
+      <span>FinLearn · Comprehensive Financial Education</span>
       <span class="sep">·</span>
       <span>Educational resource. Always consult a financial advisor before investing.</span>
     </footer>
   </main>
+
+  <!-- RIGHT SIDEBAR: Table of Contents -->
+  <aside id="tocSidebar" class="toc-sidebar">
+    <div class="toc-header">On this page</div>
+    <nav id="toc" class="toc-nav">
+      <!-- Table of contents injected here -->
+    </nav>
+  </aside>
 
   <script src="data.js"></script>
   <script src="app.js"></script>
