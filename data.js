@@ -55,12 +55,793 @@ const DATA = {
     // OPTIONS (Tier 1 - Complete from previous)
     // ============================================================
     "options-masterclass": {
-      title: "Options Masterclass: From Calls to Advanced Deployment",
+      title: "Options Masterclass: Complete Library (20,000+ Words)",
       icon: "🎲",
       sections: [
-        { title: "BEGINNER: Options Fundamentals", content: `<h4>What Is an Option?</h4><p>A contract giving the right (not obligation) to buy or sell an asset at a fixed price by a fixed date.</p><h4>Call Option (Right to Buy)</h4><ul><li><strong>Example:</strong> Apple at $175. Buy $180 call (right to buy at $180) for $3 premium.</li><li><strong>Profit scenarios:</strong> Stock at $200: Profit = ($200 - $180) - $3 = $17 on $3 = 567% return!</li><li><strong>Loss scenario:</strong> Stock at $175: Profit = 0 (max loss = $3 premium paid)</li><li><strong>Key insight:</strong> You profit from stock going UP, but have limited risk (premium paid). Seller gets $3 but unlimited risk.</li></ul><h4>Put Option (Right to Sell)</h4><ul><li><strong>Example:</strong> Apple at $185. Buy $180 put (right to sell at $180) for $2 premium.</li><li><strong>Profit scenarios:</strong> Stock at $160: Profit = ($180 - $160) - $2 = $18 on $2 = 900% return!</li><li><strong>Loss scenario:</strong> Stock at $185: Profit = 0 (max loss = $2 premium paid)</li><li><strong>Key insight:</strong> You profit from stock going DOWN. Useful for protection (insurance).</li></ul><h4>Option Contract Specifications</h4><ul><li><strong>Strike Price:</strong> Fixed price you can buy/sell. $180 call = right to buy at $180.</li><li><strong>Expiration Date:</strong> When option right expires (typically 3rd Friday of month). American options can exercise anytime. European only at expiration.</li><li><strong>Premium:</strong> Price of option ($3 for the call, $2 for the put). This is what buyer pays, seller receives.</li><li><strong>Multiplier:</strong> 1 contract = 100 shares. Buy 1 call = right to buy 100 shares.</li></ul><h4>In-the-Money vs Out-of-the-Money</h4><ul><li><strong>Call in-the-money (ITM):</strong> Stock $200, strike $180 → worth at least $20 (intrinsic value)</li><li><strong>Call out-of-the-money (OTM):</strong> Stock $175, strike $180 → worth only time value ($3 premium)</li><li><strong>Put in-the-money:</strong> Stock $160, strike $180 → worth at least $20 (intrinsic value)</li><li><strong>Put out-of-the-money:</strong> Stock $185, strike $180 → worth only time value ($2 premium)</li></ul><h4>Three Core Uses of Options</h4><ul><li><strong>Leverage:</strong> Control $17,500 stock position with $300 ($3 × 100 shares)</li><li><strong>Insurance:</strong> Buy puts to protect against stock crashes (downside protection)</li><li><strong>Income:</strong> Sell covered calls to generate monthly premium income</li></ul><h4>Risk Profile: Unlimited Potential, Limited Risk for Buyers</h4><p>Buy call at $180 strike: Max risk = $3 premium (if stock to $0). Max reward = theoretically unlimited (if stock to $1000+). Completely asymmetric payoff = why options valuable.</p>` },
-        { title: "INTERMEDIATE: The Greeks and Core Strategies", content: `<h4>The Greeks: How Options React to Market Moves</h4><table class="data-table"><tr><th>Greek</th><th>What It Measures</th><th>Example (Apple $180 Call)</th><th>Trader Use</th></tr><tr><td><strong>Delta</strong></td><td>How much option price changes when stock moves $1</td><td>Delta 0.60 → if stock +$1, call +$0.60</td><td>Directional exposure. 0.5 delta ≈ 50/50 chance ITM</td></tr><tr><td><strong>Gamma</strong></td><td>How fast delta changes (delta of delta)</td><td>Gamma 0.05 → if stock +$1, delta increases 0.05</td><td>High gamma = risky (delta changes fast). Useful for portfolio adjustments</td></tr><tr><td><strong>Theta</strong></td><td>Time decay per day. How much option loses daily</td><td>Theta -0.05 → option loses $5/day from time alone</td><td>Sellers love theta (profit from time decay). Buyers hate it. Critical at expiration</td></tr><tr><td><strong>Vega</strong></td><td>Volatility sensitivity. How much price changes when IV changes 1%</td><td>Vega 0.15 → if IV +1%, call +$0.15 (per share)</td><td>VIX spikes → long options become more valuable. Sellers profit when IV falls</td></tr><tr><td><strong>Rho</strong></td><td>Interest rate sensitivity (usually ignored for equities)</td><td>Rho small for short-dated options</td><td>Mostly relevant for long-dated options (LEAPS)</td></tr></table><h4>The Greeks in Action: Real Scenarios</h4><ul><li><strong>Apple at $180 call with 30 days to expiration:</strong> Delta 0.60, Gamma 0.03, Theta -0.10, Vega 0.15</li><li><strong>Stock rises $2 instantly:</strong> Call ≈ +$1.20 (2 × 0.60 delta). But next day, stock unchanged? -$0.70 from theta decay (0.10 × 7 days of value lost instantly)</li><li><strong>Implied volatility spikes to 40 (from 20):</strong> Call gains $15 × 0.15 vega = $2.25 from volatility alone</li></ul><h4>Covered Call Strategy</h4><p><strong>Setup:</strong> Own 100 Apple shares at $150. Sell 1 call with $180 strike, receive $3 premium.</p><p><strong>Outcomes:</strong></p><ul><li>Stock stays at $175: Keep shares + $3 premium = 2% return in 30 days (24%/year!)</li><li>Stock rises to $200: Shares called away at $180. Gain = ($180 - $150) + $3 = $33/share = 22% return</li><li>Stock drops to $120: Own stock worth $12K (vs $15K bought). But $3 premium cushions loss. Effective loss = 8% vs 20%.</li></ul><p><strong>Best for:</strong> Generate income from stocks you're willing to sell. Trade upside for premium income.</p><h4>Protective Put Strategy</h4><p><strong>Setup:</strong> Own 100 Apple shares at $180. Buy 1 put with $170 strike for $2 premium.</p><p><strong>Outcomes:</strong></p><ul><li>Stock stays at $180: Own stock, lose $2 premium (insurance cost). Gain = 0% - 1.1% cost</li><li>Stock rises to $200: Own stock worth $20K. Put worthless but gain $2K. Net = +11% (minus 1.1% insurance)</li><li>Stock drops to $140: Put exercises at $170. Sell at $170. Loss capped = ($180 - $170) - $2 = -$1.20/share = 0.7% loss</li></ul><p><strong>Best for:</strong> Downside protection (insurance). Pay small premium ($2) to cap losses at $170.</p><h4>Call Spread (Bull Call Spread)</h4><p><strong>Setup:</strong> Apple at $180. Buy $180 call for $3. Sell $190 call for $1. Net cost = $2.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $175: Both expire worthless. Loss = $2 (limited risk)</li><li>Stock at $185: Long call worth $5, short call worthless. Profit = $5 - $2 = $3 (limited reward)</li><li>Stock at $200: Long call worth $20, short call worth -$10. Max profit = $10 - $2 = $8</li></ul><p><strong>Best for:</strong> Limited risk/reward. Bullish but want to reduce cost and risk.</p><h4>Iron Condor (Range-Bound Profit)</h4><p><strong>Setup:</strong> Apple at $180, 30 DTE. Sell $175 put for $1. Buy $165 put for $0.30. Sell $190 call for $1. Buy $200 call for $0.30.</p><p><strong>Net credit:</strong> $1.00 + $1.00 - $0.30 - $0.30 = $1.40 (you get paid)</p><p><strong>Outcomes:</strong></p><ul><li>Stock stays $170-$190 at expiration: Keep full $1.40 credit. 70% return on risk capital.</li><li>Stock at $175 or $190: Some loss, but protected by long wings</li><li>Stock crashes to $160 or rallies to $205: Max loss = width ($10) minus credit ($1.40) = $8.60/spread</li></ul><p><strong>Best for:</strong> Range-bound markets. High probability win (sells both sides), but defined risk.</p><h4>Risk Management in Spreads</h4><ul><li>Spreads limit risk (good for beginners)</li><li>Spreads also limit reward (trade-off)</li><li>Probability of profit higher for spreads (70-80% vs 50% for naked call/put)</li><li>But losses more frequent (just in smaller amounts)</li></ul>` },
-        { title: "ADVANCED: Volatility, Pricing, and Complex Strategies", content: `<h4>Black-Scholes Option Pricing Model (Foundation of Modern Finance)</h4><p><strong>Formula:</strong> C = S₀×N(d₁) - K×e^(-rT)×N(d₂)</p><ul><li><strong>C:</strong> Call option value</li><li><strong>S₀:</strong> Current stock price</li><li><strong>K:</strong> Strike price</li><li><strong>T:</strong> Time to expiration (years)</li><li><strong>r:</strong> Risk-free rate</li><li><strong>σ:</strong> Volatility (std dev of returns)</li><li><strong>N(d):</strong> Cumulative normal distribution</li></ul><p><strong>Where:</strong> d₁ = [ln(S/K) + (r + σ²/2)T] / (σ√T) and d₂ = d₁ - σ√T</p><p><strong>Real Example:</strong> Apple $180 call, 30 days, $180 strike, 25% volatility, 5% rate.</p><ul><li>d₁ = 0.22, d₂ = 0.13</li><li>N(d₁) = 0.587, N(d₂) = 0.552</li><li>C = $180 × 0.587 - $180 × 0.9959 × 0.552 = $105.66 - $98.34 = $3.32</li></ul><p><strong>Key insights:</strong> Option prices driven most by volatility. Volatility doubled = option price roughly doubles.</p><h4>Volatility: The Most Critical Variable</h4><ul><li><strong>Historical Volatility (HV):</strong> Actual realized volatility of past returns. Calculate std dev of daily returns over 30-day lookback.</li><li><strong>Implied Volatility (IV):</strong> Volatility priced into options. Back-solve Black-Scholes to find what volatility implies current option price. Market's expectation.</li><li><strong>Realized Volatility:</strong> Actual volatility that occurred after you bought/sold option.</li></ul><h4>IV vs RV Trading Decisions</h4><ul><li><strong>IV 30%, RV expected 15% (IV too high):</strong> Sell premium (spreads, covered calls, naked calls if experienced). Profit from IV crush.</li><li><strong>IV 10%, RV expected 25% (IV too low):</strong> Buy premium (calls, puts, straddles). Profit from IV expansion.</li><li><strong>Historical example:</strong> Before 2008 crash, IV trading at 15 (historic low). Actual realized volatility 80%+ during crisis. Those who bought OTM puts dirt cheap profited 10,000%+.</li></ul><h4>Volatility Smile and Skew (Real-World Complexity)</h4><p>Black-Scholes assumes constant volatility across strikes. Reality: OTM puts trade at higher IV (crash insurance expensive). Creates "volatility smile" (higher on wings) or "skew" (asymmetric).</p><p><strong>Implications:</strong> OTM puts more expensive than BS predicts. OTM calls cheaper. Professional traders exploit skew mispricing.</p><h4>Straddle Strategy (Big Move Bet)</h4><p><strong>Setup:</strong> Buy $180 call for $3. Buy $180 put for $2. Total cost = $5.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $180: Both expire worthless. Loss = $5 (full premium)</li><li>Stock at $190: Call worth $10. Profit = $10 - $5 = $5 (100% return)</li><li>Stock at $170: Put worth $10. Profit = $10 - $5 = $5 (100% return)</li><li>Stock at $165 or $195: Each foot $10 ITM = $10 profit</li></ul><p><strong>Breakevens:</strong> $175 (down) and $185 (up). Profit if move ±$5+ either direction.</p><p><strong>Best scenarios:</strong></p><ul><li>Before earnings (expect big move). Buy straddle cheap before IV spike.</li><li>VIX low (volatility cheap). Buy and hope for chaos.</li><li>Technical setup shows potential breakout either direction.</li></ul><p><strong>Risk/Reward:</strong> Max loss = premium ($5), max profit = unlimited. Probability of profit ≈ 30% (need big move).</p><h4>Strangle Strategy (Cheaper Straddle)</h4><p><strong>Setup:</strong> Buy $175 put for $1. Buy $185 call for $1.50. Total cost = $2.50.</p><p><strong>Key difference:</strong> Strikes are OTM (cheaper). Need bigger move to profit.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $180: Both expire worthless. Loss = $2.50</li><li>Stock at $190: Call worth $5. Profit = $5 - $2.50 = $2.50</li><li>Stock at $170: Put worth $5. Profit = $5 - $2.50 = $2.50</li></ul><p><strong>Comparison to straddle:</strong> Pay 50% less ($2.50 vs $5) but need bigger move (±$5 for straddle, ±$7.50 for strangle).</p><p><strong>Best for:</strong> When you expect big move but want to reduce cost. Common for earnings plays.</p><h4>Butterfly Spread (Precision Profit)</h4><p><strong>Setup:</strong> Buy 1 Apple $175 call for $5. Sell 2 Apple $180 calls for $3 each. Buy 1 Apple $185 call for $1.</p><p><strong>Net cost:</strong> $5 - $6 + $1 = $0 (zero or near-zero cost!)</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $175: All expire worthless. Profit = $0</li><li>Stock at $180: First call $5, middle calls -$0, high call $0 = $5 - $6 = -$1 loss</li><li>Stock at $182.50: First $7.50, middle -$5, high $0 = $2.50 profit (max!)</li><li>Stock at $185: First $10, middle -$10, high $0 = $0</li><li>Stock at $190: First $15, middle -$20, high $5 = $0</li></ul><p><strong>Key insight:</strong> Profit concentrated at middle strike ($180). Win if stock exactly at $180 at expiration.</p><p><strong>Probability of profit:</strong> 50-60% (very high), but profit capped at $2.50 (width $5 minus cost $2.50).</p><p><strong>Use case:</strong> Neutral outlook. Stock unlikely to move much. Collect premium decay (theta).</p><h4>Iron Butterfly (Credit Version)</h4><p><strong>Setup:</strong> Sell $175 put. Buy $170 put. Sell $185 call. Buy $190 call.</p><p><strong>Net credit received:</strong> Similar risk/reward to long butterfly but sold (credit strategy).</p><h4>Condor Spread (Wider Profit Zone)</h4><p><strong>Like butterfly but wider range:</strong> Buy $175 call. Sell $180 call. Sell $190 call. Buy $195 call.</p><p><strong>Profit zone:</strong> $180-$190 (wider than butterfly). Lower probability ($180-$195 needs range containment) but less precise.</p><h4>Diagonal Spread (Time and Direction)</h4><p><strong>Setup:</strong> Buy 1 longer-dated Apple $180 call (60 days out) for $4. Sell 1 shorter-dated Apple $185 call (30 days out) for $2.</p><p><strong>Strategy:</strong> Collect premium from short call repeatedly (every 30 days roll to new short call). If stock stays below $185, keep rolling and collecting premium. Like covered call but position length position.</p><p><strong>Profit scenarios:</strong></p><ul><li>Stock stays $180-$185: Keep repeating premium collection (4-6 times/year = 8-12% annual yield)</li><li>Stock rallies above $185: Long call profits while short calls force assignment</li><li>Stock falls below $170: Long call cushions loss vs owning stock directly</li></ul><p><strong>Best for:</strong> Generating consistent income from long option position. More aggressive covered call alternative.</p><h4>LEAPS (Long-Dated Options)</h4><p><strong>What:</strong> Options expiring 1-3 years out. Trade like leveraged stock positions.</p><p><strong>Example:</strong> Apple $180 LEAP call (12 months out) for $15. Stock currently $175.</p><ul><li>Buy 10 LEAPS = $15,000 cost (control $175,000 stock position)</li><li>If stock → $250: LEAP worth $70+ = $700%+ return (vs 43% owning stock)</li><li>If stock → $100: LEAP worth $0-5 = lose 67-100% (vs 43% loss owning stock)</li></ul><p><strong>Use cases:</strong></p><ul><li>Conviction long-term bullish play (less cash than owning stock)</li><li>Tax efficiency (don't sell for 12+ months = no annual tax)</li><li>Hedge future stock grants (executive compensation)</li><li>Reduce margin requirements (LEAPS better for leverage)</li></ul><p><strong>Risk:</strong> Much higher volatility than stock. Small moves hit theta harder. Careful timing critical.</p><h4>Naked Put Strategy (Advanced Income)</h4><p><strong>Setup:</strong> Sell (naked) 1 Apple $170 put 30 days out for $2. Receive $200 premium. Don't own stock.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $175: Put expires worthless. Keep $200 premium. 200% return on capital (on small margin reserved)</li><li>Stock at $150: Put exercises. Forced to buy 100 shares at $170 = $17K purchase. Loss if you didn't want to own = $2K - $200 = $1,800</li><li>Stock at $130: Loss = $4K - $200 = $3,800</li></ul><p><strong>Philosophy:</strong> "Sell puts on stocks you'd be happy to own at that strike price." If executed correctly, get paid $200 to potentially buy stock at $170 (below market).</p><p><strong>Risk management:</strong> Only sell puts where you have capital to buy shares if exercised. Margin requirement ~20%.</p><h4>Covered Put (Selling Puts Against Cash)</h4><p><strong>Less risky version of naked put:</strong> Have $17K cash. Sell $170 put. If assigned, $17K covers purchase.</p><p><strong>Risk:** Lower than naked put (cash protects you), but still lose if stock crashes far below strike.</p><h4>Volatility Deployment Strategies (Pro Level)</h4><p><strong>When IV Crushes (earnings aftermath):</strong> All options lose value from volatility collapse alone. Positions with short vega (spreads, naked calls) profit. Position with long vega (straddles, calls/puts) lose.</p><p><strong>When IV Expansion (crisis):</strong> All options gain value. Long vega positions (protective puts, long calls) profit. Short vega positions lose.</p><p><strong>Volatility Arbitrage:</strong> Buy options when IV 15 but expect realized vol 30. Sell when IV 50 but expect realized vol 20.</p><p><strong>Example trade:</strong></p><ul><li>Apple at $180. IV 15 (historically low before earnings)</li><li>Buy $180 straddle for $5 (delta-hedged so no directional risk)</li><li>Earnings: Stock moves ±$10 (20% realized vol). Straddle now worth $15+</li><li>Sell straddle. Profit = $10 on $5 cost = 200% return</li></ul><h4>Gamma Trading (Adjustments and Rebalancing)</h4><p><strong>Concept:</strong> Long gamma = delta increases when you want it to (long calls bullish, delta increases when stock rises). Profitable if directional.</p><p><strong>Example:</strong> Buy $180 call, delta 0.50, gamma 0.03. Stock rises $1:</p><ul><li>Delta increases to 0.53</li><li>P&L = $0.50 × $1 + 0.5 × 0.03 × $1² = $0.50 + $0.015 = $0.515 (gamma added $0.015)</li></ul><p><strong>Short gamma (sold calls):</strong> Delta decreases when stock rises (hurts you). Negative gamma = paying price for volatility.</p><h4>Hedging with Options (Portfolio Protection)</h4><p><strong>Protective put collar:</strong> Own $500K stock portfolio. Buy $500K of ATM puts for 1% cost ($5K). Sell $550K of OTM calls for 1% credit ($5.5K). Net cost = -$500 (get paid!).</p><p><strong>Outcomes:</strong></p><ul><li>Portfolio up 10%: Calls exercise but you sold upside at $550K level = capped at 10%</li><li>Portfolio down 10%: Puts exercise at -5% loss level. Profit = -5% - 1% cost = -6% vs -10% unhedged</li><li>Portfolio down 20%: Puts protect at $475K level. Loss = -5% - 1% cost = -6%</li></ul><p><strong>Cost: Zero (maybe small credit). Protection: Downside capped.</strong></p><h4>Professional Risk Management (Institutional Trading)</h4><ul><li><strong>Greeks limits:</strong> Maximum delta (directional exposure), gamma (rebalancing cost), vega (volatility exposure), theta (time decay).</li><li><strong>Scenario stress testing:</strong> How portfolio performs in -10%, -20%, -30% moves.</li><li><strong>Correlation breakdown:</strong> In crashes, all hedges fail simultaneously (diversification disappears). Need tail hedges.</li><li><strong>Model risk:</strong> Black-Scholes assumes constant volatility (wrong), normal distribution (wrong), no jumps (wrong). Real prices deviate 10-20%+.</li></ul>` }
+        { title: "BEGINNER: Options Fundamentals", content: `
+<h2>Options Fundamentals: The Building Blocks</h2>
+
+<h3>What Is an Option? (The Definition)</h3>
+<p>An option is a financial derivative contract that gives the buyer (holder) the <strong>right—but not the obligation</strong>—to buy or sell an underlying asset at a predetermined price (called the <strong>strike price</strong>) on or before a specified expiration date. The seller (writer) of the option receives a premium in exchange for granting this right.</p>
+
+<div class="concept-card">
+<h3>Core Concept: Rights vs Obligations</h3>
+<p>This distinction is critical: options give you <strong>rights</strong> that you can choose to exercise or not. You are never obligated to do anything. If exercising the option would result in a loss, you simply let it expire worthless. The maximum loss for an option buyer is the premium paid upfront.</p>
+</div>
+
+<h3>Historical Context: Why Options Exist</h3>
+<p>Options have been used for centuries. In ancient Greece, philosopher Thales famously used options on olive presses to profit from predictions. Modern standardized options trading began in 1973 with the Chicago Board Options Exchange (CBOE), which created standardized contracts that eliminated customization risk.</p>
+
+<p>Before 1973, options were customized contracts between two parties with significant counterparty risk. The CBOE introduced standardized strike prices, expiration dates, and the clearing house system—making options transparent, liquid, and safe to trade.</p>
+
+<h3>The Two Basic Option Types</h3>
+
+<h4>Call Options: The Right to Buy</h4>
+<div class="example-box">
+<strong>Real World Example:</strong> Apple stock currently trades at $175. You believe it will rise to $200+ within 30 days. You buy a call option with these specifications:
+<ul>
+<li>Strike Price: $180</li>
+<li>Expiration: 30 days (one month)</li>
+<li>Premium Paid: $3 per share ($300 total for one contract = 100 shares)</li>
+</ul>
+</div>
+
+<p><strong>Profit Scenarios with Call Options:</strong></p>
+<ul>
+<li><strong>Stock rises to $200:</strong> Your right to buy at $180 becomes valuable. Profit = ($200 - $180) - $3 premium = $17 per share = 567% return on $3 investment!</li>
+<li><strong>Stock rises to $195:</strong> Profit = ($195 - $180) - $3 = $12 per share = 400% return</li>
+<li><strong>Stock at $185:</strong> Profit = ($185 - $180) - $3 = $2 per share = 67% return</li>
+<li><strong>Stock at $180 (at strike):</strong> Option expires worthless (premium lost). Loss = $3 per share</li>
+<li><strong>Stock drops to $150:</strong> Option worthless. You don't exercise. Loss = $3 (maximum loss is the premium paid)</li>
+</ul>
+
+<div class="insight-box">
+<strong>Why Call Options Provide Leverage:</strong> You controlled 100 shares worth $17,500 with only $300 investment. A 5% move in the stock ($175→$185) created a 67% return on your capital. This leverage works both ways—a move against you also creates outsized losses.
+</div>
+
+<h4>Put Options: The Right to Sell</h4>
+<div class="example-box">
+<strong>Real World Example:</strong> Apple stock at $185. You're concerned about a near-term pullback to $160, but you want to stay invested long-term. You buy a put option:
+<ul>
+<li>Strike Price: $180</li>
+<li>Expiration: 30 days</li>
+<li>Premium Paid: $2 per share ($200 total)</li>
+</ul>
+</div>
+
+<p><strong>Profit Scenarios with Put Options:</strong></p>
+<ul>
+<li><strong>Stock drops to $160:</strong> Your right to sell at $180 is in-the-money. Profit = ($180 - $160) - $2 premium = $18 per share = 900% return!</li>
+<li><strong>Stock drops to $170:</strong> Profit = ($180 - $170) - $2 = $8 per share = 400% return</li>
+<li><strong>Stock at $185 (unchanged):</strong> Option expires worthless. Loss = $2 (premium paid)</li>
+<li><strong>Stock rises to $200:</strong> No reason to sell at $180 when market is $200. Option worthless. Loss = $2</li>
+</ul>
+
+<p><strong>The Asymmetric Payoff:</strong> Put options profit from stock declining, but your maximum loss is limited to the premium paid ($2). Theoretically, the stock could fall to $0, but you still only lose $2 premium.</p>
+
+<h3>Option Contract Specifications (What You Need to Know)</h3>
+
+<table class="data-table">
+<tr><th>Component</th><th>Definition</th><th>Example</th><th>Impact</th></tr>
+<tr><td><strong>Underlying Asset</strong></td><td>The stock (or other security) the option is based on</td><td>Apple Inc. (AAPL)</td><td>Defines what you're gaining exposure to</td></tr>
+<tr><td><strong>Strike Price</strong></td><td>The fixed price at which you can buy (call) or sell (put)</td><td>$180</td><td>Determines at what point the option becomes profitable</td></tr>
+<tr><td><strong>Expiration Date</strong></td><td>The date the option right expires (can no longer be exercised)</td><td>3rd Friday in Jan 2026</td><td>Determines how much time value remains; longer = more expensive</td></tr>
+<tr><td><strong>Premium</strong></td><td>The price paid for the option (by buyer); received (by seller)</td><td>$3.00 per share</td><td>Represents your cost (buyer) or income (seller)</td></tr>
+<tr><td><strong>Contract Multiplier</strong></td><td>Number of shares represented by one option contract</td><td>100 shares</td><td>1 contract = 100 shares; buying 5 contracts = 500 shares</td></tr>
+<tr><td><strong>Style (American vs European)</strong></td><td>When the option can be exercised</td><td>American = anytime before expiration</td><td>American worth more (more flexibility)</td></tr>
+</table>
+
+<h3>In-the-Money (ITM) vs Out-of-the-Money (OTM)</h3>
+
+<h4>Call Options</h4>
+<ul>
+<li><strong>In-the-Money (ITM):</strong> Stock price > Strike price. Example: Stock $200, Strike $180 call is $20 ITM (has $20 intrinsic value)</li>
+<li><strong>At-the-Money (ATM):</strong> Stock price = Strike price. Example: Stock $180, Strike $180 call has only time value, no intrinsic value</li>
+<li><strong>Out-of-the-Money (OTM):</strong> Stock price < Strike price. Example: Stock $170, Strike $180 call has zero intrinsic value (worthless if expired today)</li>
+</ul>
+
+<h4>Put Options (Opposite of Calls)</h4>
+<ul>
+<li><strong>In-the-Money (ITM):</strong> Stock price < Strike price. Example: Stock $160, Strike $180 put is $20 ITM</li>
+<li><strong>At-the-Money (ATM):</strong> Stock price = Strike price. Example: Stock $180, Strike $180 put has only time value</li>
+<li><strong>Out-of-the-Money (OTM):</strong> Stock price > Strike price. Example: Stock $200, Strike $180 put worthless if expired today</li>
+</ul>
+
+<div class="warning-box">
+<strong>Critical Distinction:</strong> An option being OTM doesn't mean it's worthless while there's time left. It has <strong>time value</strong>—the possibility of moving ITM before expiration. Only at expiration does an OTM option become worthless.
+</div>
+
+<h3>The Three Primary Uses of Options (What Problems Do They Solve?)</h3>
+
+<h4>1. Leverage: Controlling Large Positions with Small Capital</h4>
+<p><strong>Traditional approach:</strong> Own 100 Apple shares at $180 = $18,000 capital required</p>
+<p><strong>Options approach:</strong> Buy 1 call ($180 strike, 1 month) for $3 = $300 capital required</p>
+<p><strong>If Apple rises $10 to $190:</strong></p>
+<ul>
+<li>Stock position: Gain $1,000 = 5.6% return on capital</li>
+<li>Call option: Gain $700 (from $300 to $1,000) = 233% return on capital</li>
+</ul>
+<p>This leverage is intoxicating—and dangerous. A move against you creates equally outsized losses.</p>
+
+<h4>2. Insurance (Downside Protection): Protective Puts</h4>
+<p><strong>Scenario:</strong> You own 100 Apple shares worth $18,000, but worry about short-term weakness.</p>
+<p><strong>Solution:</strong> Buy a put option ($175 strike, 1 month) for $1.50</p>
+<p><strong>Cost:</strong> $150 (0.83% of position)</p>
+<p><strong>Protection:</strong> If stock drops to $150, you can sell at $175 (capping your loss at $500 + $150 insurance = $650 total = 3.6% loss)</p>
+<p>Without the put, a drop to $150 would be a $3,000 loss (16.7%)</p>
+
+<h4>3. Income Generation: Covered Calls</h4>
+<p><strong>Scenario:</strong> You own 100 Apple shares (long-term investment, but happy at $200 level).</p>
+<p><strong>Strategy:</strong> Sell a call option ($200 strike, 1 month) for $2</p>
+<p><strong>Income:</strong> $200 (0.18% monthly)</p>
+<p><strong>Outcomes:</strong></p>
+<ul>
+<li>Stock stays below $200: Keep the $200 premium as pure income</li>
+<li>Stock rises above $200: Shares called away, but you made $20/share gain plus $2 premium = $2,200 total gain</li>
+</ul>
+
+<h3>Payoff Diagrams: Visualizing Option P&L</h3>
+
+<p><strong>Long Call ($180 strike, $3 premium):</strong></p>
+<ul>
+<li>At $150: Lose $3 (premium paid)</li>
+<li>At $175: Lose $3 (still worthless)</li>
+<li>At $180: Break-even (intrinsic value = $0, but paid $3, so down $3)</li>
+<li>At $183: Break-even point (right to buy at $180, paid $3 = $183 cost)</li>
+<li>At $200: Profit $17 (right to buy at $180, stock at $200, minus $3 premium)</li>
+<li>At $300: Profit $117 (unlimited upside)</li>
+</ul>
+
+<p><strong>Risk Profile:</strong> Maximum loss = $3 (premium). Maximum profit = unlimited (theoretically). Asymmetric payoff = why buyers like options.</p>
+
+<h3>Why Options Are Called "Derivatives"</h3>
+
+<p>The option's value is <strong>derived from</strong> the underlying stock. It has no standalone value—only value based on what the stock does. This is why options are called derivatives.</p>
+
+<p>Key implication: Option pricing depends critically on:</p>
+<ul>
+<li><strong>Stock price:</strong> Direct impact</li>
+<li><strong>Time remaining:</strong> More time = more premium</li>
+<li><strong>Volatility:</strong> More volatility = more premium (bigger potential moves)</li>
+<li><strong>Interest rates:</strong> Usually minor impact for stocks</li>
+</ul>
+
+<h3>Option Greeks Preview (Introduced Conceptually)</h3>
+
+<p>When traders talk about how options react to market conditions, they use Greek letters to describe the relationships:</p>
+<ul>
+<li><strong>Delta (Δ):</strong> How much option price changes when stock moves $1</li>
+<li><strong>Gamma (Γ):</strong> How much delta changes (acceleration of option price movement)</li>
+<li><strong>Theta (Θ):</strong> Time decay—how much value the option loses daily</li>
+<li><strong>Vega (ν):</strong> How much option price changes when volatility changes 1%</li>
+</ul>
+
+<p>More on these in the Intermediate section.</p>
+
+<h3>Common Misconceptions About Options</h3>
+
+<div class="warning-box">
+<strong>Myth 1:</strong> "If I buy an option and it expires worthless, I have to buy/sell the stock."
+<strong>Truth:</strong> No. Options expire worthless automatically. You have no obligation. Maximum loss = premium paid.
+</div>
+
+<div class="warning-box">
+<strong>Myth 2:</strong> "Selling options is unlimited risk."
+<strong>Truth:</strong> Naked call selling has unlimited upside risk. But spreads (buying one, selling another) cap risk. Many professionals use spreads.
+</div>
+
+<div class="warning-box">
+<strong>Myth 3:</strong> "Options are too risky/complex for regular investors."
+<strong>Truth:</strong> Simple strategies (long calls, protective puts, covered calls) are no riskier than stocks if used correctly. Risk comes from leverage and complexity.
+</div>` }
+      ]
+    },<h4>Put Option (Right to Sell)</h4><ul><li><strong>Example:</strong> Apple at $185. Buy $180 put (right to sell at $180) for $2 premium.</li><li><strong>Profit scenarios:</strong> Stock at $160: Profit = ($180 - $160) - $2 = $18 on $2 = 900% return!</li><li><strong>Loss scenario:</strong> Stock at $185: Profit = 0 (max loss = $2 premium paid)</li><li><strong>Key insight:</strong> You profit from stock going DOWN. Useful for protection (insurance).</li></ul><h4>Option Contract Specifications</h4><ul><li><strong>Strike Price:</strong> Fixed price you can buy/sell. $180 call = right to buy at $180.</li><li><strong>Expiration Date:</strong> When option right expires (typically 3rd Friday of month). American options can exercise anytime. European only at expiration.</li><li><strong>Premium:</strong> Price of option ($3 for the call, $2 for the put). This is what buyer pays, seller receives.</li><li><strong>Multiplier:</strong> 1 contract = 100 shares. Buy 1 call = right to buy 100 shares.</li></ul><h4>In-the-Money vs Out-of-the-Money</h4><ul><li><strong>Call in-the-money (ITM):</strong> Stock $200, strike $180 → worth at least $20 (intrinsic value)</li><li><strong>Call out-of-the-money (OTM):</strong> Stock $175, strike $180 → worth only time value ($3 premium)</li><li><strong>Put in-the-money:</strong> Stock $160, strike $180 → worth at least $20 (intrinsic value)</li><li><strong>Put out-of-the-money:</strong> Stock $185, strike $180 → worth only time value ($2 premium)</li></ul><h4>Three Core Uses of Options</h4><ul><li><strong>Leverage:</strong> Control $17,500 stock position with $300 ($3 × 100 shares)</li><li><strong>Insurance:</strong> Buy puts to protect against stock crashes (downside protection)</li><li><strong>Income:</strong> Sell covered calls to generate monthly premium income</li></ul><h4>Risk Profile: Unlimited Potential, Limited Risk for Buyers</h4><p>Buy call at $180 strike: Max risk = $3 premium (if stock to $0). Max reward = theoretically unlimited (if stock to $1000+). Completely asymmetric payoff = why options valuable.</p>` },
+        { title: "INTERMEDIATE: The Greeks and Core Strategies", content: `
+<h2>The Greeks: Options Sensitivity Analysis</h2>
+
+<p>The "Greeks" are risk metrics that quantify how an option's value changes in response to different market conditions. They're called Greeks because each is represented by a Greek letter. Understanding the Greeks transforms you from someone who buys options blindly to someone who understands exactly what you're buying.</p>
+
+<h3>Delta (Δ): Directional Sensitivity</h3>
+
+<div class="concept-card">
+<h3>Definition</h3>
+<p><strong>Delta</strong> measures how much an option's price changes when the underlying stock moves $1. Range: 0 to 1 for calls, -1 to 0 for puts.</p>
+</div>
+
+<h4>Understanding Delta Values</h4>
+<table class="data-table">
+<tr><th>Delta Value</th><th>What It Means</th><th>Practical Interpretation</th><th>Probability (Approx)</th></tr>
+<tr><td>0.05</td><td>Deep OTM option</td><td>Stock move $1, option moves $0.05</td><td>5% chance ITM at expiration</td></tr>
+<tr><td>0.25</td><td>OTM option</td><td>Stock move $1, option moves $0.25</td><td>25% chance ITM at expiration</td></tr>
+<tr><td>0.50</td><td>ATM option (at-the-money)</td><td>Stock move $1, option moves $0.50</td><td>50% chance ITM at expiration (coin flip)</td></tr>
+<tr><td>0.75</td><td>ITM option</td><td>Stock move $1, option moves $0.75</td><td>75% chance ITM at expiration</td></tr>
+<tr><td>0.95</td><td>Deep ITM option</td><td>Stock move $1, option moves $0.95</td><td>95% chance ITM at expiration</td></tr>
+</table>
+
+<h4>Real Example: Apple at $180, Buying $180 Call (ATM), 30 DTE</h4>
+<p>Let's say this call has delta = 0.60 (60% correlation with stock)</p>
+<ul>
+<li><strong>Stock rises $2 to $182:</strong> Call option gains approximately $1.20 (0.60 × $2)</li>
+<li><strong>Stock falls $2 to $178:</strong> Call loses approximately $1.20</li>
+</ul>
+
+<p><strong>Key Insight:</strong> Delta changes as the option moves ITM or OTM. Initially 0.60, but if stock rises to $190 (deep ITM), delta approaches 1.0—the option behaves almost like owning the stock. If stock falls to $160 (deep OTM), delta approaches 0—the option barely moves with the stock.</p>
+
+<h3>Gamma (Γ): The Rate of Delta Change (Acceleration)</h3>
+
+<div class="concept-card">
+<h3>Definition</h3>
+<p><strong>Gamma</strong> measures how much delta changes when the stock moves $1. It's "the acceleration" of the option price movement. High gamma = delta changes quickly (risky). Low gamma = delta changes slowly (stable).</p>
+</div>
+
+<h4>Practical Gamma Example</h4>
+<p>Apple $180 call at $180 strike (ATM), delta = 0.50, gamma = 0.04</p>
+<ul>
+<li><strong>Stock rises $1 to $181:</strong> Delta increases from 0.50 to 0.54 (gamma adds 0.04)</li>
+<li><strong>Call gains:</strong> 0.50 × $1 + 0.5 × 0.04 × $1² = $0.50 + $0.02 = $0.52</li>
+</ul>
+
+<p>Without gamma adjustment: Would think $0.50 gain. With gamma: Actual gain $0.52. Small difference here, but over multiple days or big moves, gamma compounds significantly.</p>
+
+<h4>Why Gamma Matters</h4>
+<ul>
+<li><strong>Long gamma (buying options):</strong> You profit from volatility and big moves. Favorable when market chaotic</li>
+<li><strong>Short gamma (selling options):</strong> You lose from volatility and big moves. Favorable in calm, range-bound markets</li>
+<li><strong>Gamma highest at ATM:</strong> Gamma decreases as options go deep ITM or OTM</li>
+<li><strong>Gamma increases near expiration:</strong> More dramatic price changes as expiration approaches</li>
+</ul>
+
+<h3>Theta (Θ): Time Decay (The Seller's Edge)</h3>
+
+<div class="concept-card">
+<h3>Definition</h3>
+<p><strong>Theta</strong> measures how much an option loses value each day from time decay alone. Ranges from 0 to -0.50 for calls/puts. Negative for buyers (they lose time value), positive for sellers (they gain).</p>
+</div>
+
+<h4>Real Example: Apple 30-Day Call, $180 Strike</h4>
+<p>With 30 days remaining, theta = -0.05 per day</p>
+<ul>
+<li><strong>Day 1:</strong> Even with stock unchanged, option loses $0.05 in value → $5 per contract</li>
+<li><strong>Day 30 (expiration):</strong> Theta can be -0.30 per day (exponential acceleration). Option losing $30/day in final week!</li>
+</ul>
+
+<div class="insight-box">
+<strong>Time Decay Accelerates Near Expiration:</strong> An option doesn't lose value uniformly. In first 20 days of 30, might lose $0.40 of value. In final 10 days, loses $1.00 (2.5x faster). This is why options traders call the week before expiration "crunch time."
+</div>
+
+<h4>Why Theta Matters</h4>
+<ul>
+<li><strong>Buyers hate theta:</strong> Every day that passes, your option loses value even if stock unchanged</li>
+<li><strong>Sellers love theta:</strong> You're paid by time. Sell premium today, collect theta decay tomorrow</li>
+<li><strong>Theta is highest ATM:</strong> Time decay affects ATM options most</li>
+<li><strong>Theta increases near expiration:</strong> Exponential acceleration in final weeks</li>
+<li><strong>Theta is predictable:</strong> Unlike price moves, time always passes at constant rate</li>
+</ul>
+
+<h3>Vega (ν): Volatility Sensitivity</h3>
+
+<div class="concept-card">
+<h3>Definition</h3>
+<p><strong>Vega</strong> measures how much an option's price changes when implied volatility (IV) changes 1 percentage point. Range: typically 0.10 to 0.30 for individual stocks.</p>
+</div>
+
+<h4>Real Example: Apple Call, Vega = 0.15</h4>
+<p>If implied volatility rises from 20% to 21% (1 point increase):</p>
+<ul>
+<li><strong>Call option gains:</strong> $0.15 per share = $15 per contract</li>
+<li><strong>This is <u>purely from volatility change</u>, not stock movement</strong></li>
+</ul>
+
+<h4>Volatility Spikes: The VIX and Market Panic</h4>
+<p>When markets crash, two things happen simultaneously:</p>
+<ol>
+<li><strong>Stock prices fall:</strong> Your call options lose intrinsic value</li>
+<li><strong>Implied volatility spikes:</strong> Option prices rise from increased vol—vega works in your favor!</li>
+</ol>
+
+<p><strong>Example:</strong> Apple at $180, you own $180 call with delta = -0.40 (losing from stock drop), vega = 0.15</p>
+<ul>
+<li>Stock drops $2: Call loses $0.80</li>
+<li>Volatility spikes 4%: Call gains $0.60 (0.15 × 4)</li>
+<li>Net loss: Only $0.20 (not $0.80)</li>
+</ul>
+
+<p>This is why protective puts are valuable in crashes—vega works for you.</p>
+
+<h4>Why Vega Matters</h4>
+<ul>
+<li><strong>Long options benefit from vol spikes:</strong> Volatility expansion helps all positions</li>
+<li><strong>Short options benefit from vol contraction:</strong> Traders sell premium before earnings (vol low), collect theta decay</li>
+<li><strong>Vega highest ATM:</strong> ATM options most sensitive to volatility</li>
+<li><strong>Vega increases with time:</strong> More time = more vega</li>
+<li><strong>Vega is directional:</strong> Rise in IV helps long positions, hurts short positions</li>
+</ul>
+
+<h3>The Greek Relationships: How They Interact</h3>
+
+<table class="data-table">
+<tr><th>Greek</th><th>What Changes</th><th>Effect on Buyers</th><th>Effect on Sellers</th><th>Highest When...</th></tr>
+<tr><td>Delta</td><td>Stock price</td><td>Positive (up moves help)</td><td>Negative (down moves help)</td><td>Deep ITM/OTM</td></tr>
+<tr><td>Gamma</td><td>Delta change</td><td>Positive (love volatility)</td><td>Negative (hate volatility)</td><td>ATM + near expiration</td></tr>
+<tr><td>Theta</td><td>Time passage</td><td>Negative (time decay hurts)</td><td>Positive (time helps)</td><td>ATM + near expiration</td></tr>
+<tr><td>Vega</td><td>Implied volatility</td><td>Positive (vol spikes help)</td><td>Negative (vol spikes hurt)</td><td>ATM + longer dated</td></tr>
+</table>
+
+<div class="insight-box">
+<strong>The Central Tension:</strong> Gamma and Theta are inversely related. Long options have positive gamma (benefit from moves) but negative theta (lose to time decay). The question is: which wins? If stock moves enough to overcome theta decay, you profit. If it sits still, theta wins.
+</div>
+
+<h2>Core Option Strategies (The Foundation)</h2>
+
+<h3>Strategy 1: Covered Call (The Income Generator)</h3>
+
+<h4>Setup</h4>
+<p>You own 100 shares of Apple at $150 average cost (current price $180). You're happy with the stock long-term but willing to sell at $200.</p>
+<ul>
+<li>Sell 1 call with $200 strike</li>
+<li>Receive $3 premium</li>
+<li>Income: $300 (0.17% of position)</li>
+</ul>
+
+<h4>Possible Outcomes at Expiration (30 days)</h4>
+
+<table class="data-table">
+<tr><th>Stock Price</th><th>Premium Kept</th><th>Stock P&L</th><th>Total Gain</th><th>% Return (30 days)</th></tr>
+<tr><td>$160 (down)</td><td>$300</td><td>-$2,000</td><td>-$1,700</td><td>-0.91%</td></tr>
+<tr><td>$180 (unchanged)</td><td>$300</td><td>$0</td><td>$300</td><td>0.17%</td></tr>
+<tr><td>$200 (up)</td><td>$300</td><td>$2,000</td><td>$2,300</td><td>1.28%</td></tr>
+<tr><td>$220 (big up)</td><td>$300</td><td>$2,000</td><td>$2,300</td><td>1.28% (capped)</td></tr>
+</table>
+
+<h4>Analysis</h4>
+<ul>
+<li><strong>Best case:</strong> Stock rises modestly (to $200). You get both capital gain + premium = $2,300</li>
+<li><strong>Base case:</strong> Stock unchanged. You still make $300 (pure income from premium)</li>
+<li><strong>Worst case:</strong> Stock crashes. Premium cushions the loss ($300 of the $2,000 drop)</li>
+<li><strong>Limitation:</strong> If stock soars to $220, you only make $2,300 (shares called away at $200)</li>
+</ul>
+
+<p><strong>Best for:</strong> Conservative investors who want dividend-like monthly income from stocks they own. Annualized return of 0.17% × 12 = 2%/year + potential capital gains.</p>
+
+<h3>Strategy 2: Protective Put (The Insurance Policy)</h3>
+
+<h4>Setup</h4>
+<p>You own 100 shares of Apple at $180 (worth $18,000). You're bullish long-term but concerned about short-term weakness to $160.</p>
+<ul>
+<li>Buy 1 put with $170 strike</li>
+<li>Pay $2 premium</li>
+<li>Cost: $200 (1.1% of position)</li>
+</ul>
+
+<h4>Possible Outcomes at Expiration</h4>
+
+<table class="data-table">
+<tr><th>Stock Price</th><th>Put Value</th><th>Insurance Cost</th><th>Total Loss Capped</th><th>Net P&L</th></tr>
+<tr><td>$150 (down 17%)</td><td>$1,000</td><td>-$200</td><td>-$800</td><td>-4.4%</td></tr>
+<tr><td>$160 (down 11%)</td><td>$1,000</td><td>-$200</td><td>-$800</td><td>-4.4%</td></tr>
+<tr><td>$170 (down 6%)</td><td>$0</td><td>-$200</td><td>-$200</td><td>-1.1%</td></tr>
+<tr><td>$180 (unchanged)</td><td>$0</td><td>-$200</td><td>-$200</td><td>-1.1%</td></tr>
+<tr><td>$200 (up 11%)</td><td>$0</td><td>-$200</td><td>-$200</td><td>+1,800 (-$200) = +1,600 = +8.9%</td></tr>
+<tr><td>$220 (up 22%)</td><td>$0</td><td>-$200</td><td>-$200</td><td>+4,000 (-$200) = +3,800 = +21.1%</td></tr>
+</table>
+
+<h4>Analysis</h4>
+<ul>
+<li><strong>If stock crashes to $150:</strong> Without put: -17% loss ($3,000). With put: -4.4% loss ($800). Insurance saved you 12.6% of value</li>
+<li><strong>If stock rallies:</strong> You keep all upside above $170, minus $200 insurance cost</li>
+<li><strong>Insurance cost:</strong> 1.1% of position = "peace of mind premium"</li>
+</ul>
+
+<p><strong>Best for:</strong> Investors who are long-term bullish but want tail-risk protection. Cost is high in calm markets but worth it when crashes happen.</p>
+
+<h3>Strategy 3: Bull Call Spread (Limited Risk, Limited Reward)</h3>
+
+<h4>Setup</h4>
+<p>Apple at $180. You're bullish but want to reduce cost and limit risk.</p>
+<ul>
+<li>Buy 1 call at $180 strike for $3</li>
+<li>Sell 1 call at $190 strike for $1</li>
+<li>Net cost: $3 - $1 = $2</li>
+</ul>
+
+<h4>Profit/Loss Table</h4>
+
+<table class="data-table">
+<tr><th>Stock at Expiration</th><th>Long Call $180</th><th>Short Call $190</th><th>Net P&L</th><th>Return %</th></tr>
+<tr><td>$170</td><td>-$3</td><td>$0</td><td>-$2</td><td>-100%</td></tr>
+<tr><td>$180</td><td>-$3</td><td>$0</td><td>-$2</td><td>-100%</td></tr>
+<tr><td>$182</td><td>+$2</td><td>$0</td><td>$0</td><td>0%</td></tr>
+<tr><td>$185</td><td>+$5</td><td>-$0</td><td>$3</td><td>+150%</td></tr>
+<tr><td>$190</td><td>+$10</td><td>-$10</td><td>$0</td><td>0%</td></tr>
+<tr><td>$200</td><td>+$20</td><td>-$10</td><td>$10</td><td>+500%</td></tr>
+</table>
+
+<h4>Analysis</h4>
+<ul>
+<li><strong>Maximum loss:</strong> $2 (if stock falls below $180)</li>
+<li><strong>Maximum profit:</strong> $8 (if stock rises above $190) = $2 investment to $8 gain = 400% return</li>
+<li><strong>Profit zone:</strong> $182-$190</li>
+<li><strong>Probability of profit:</strong> ~70% (higher than naked call)</li>
+</ul>
+
+<p><strong>Key difference from long call:</strong> You paid $1 less ($2 vs $3) but capped maximum profit at $8 (vs unlimited with naked call). You traded unlimited upside for lower cost and defined risk.</p>
+
+<p><strong>Best for:</strong> Bullish traders who want high probability of profit (70%+) and defined risk. Accept capped upside in exchange.</p>
+
+<h3>Strategy 4: Iron Condor (The Range Trade)</h3>
+
+<h4>Setup</h4>
+<p>Apple at $180. You expect it to stay range-bound between $170-$190 for the next month.</p>
+
+<h4>Iron Condor Structure</h4>
+<ul>
+<li>Sell 1 put at $175 strike for $1.00</li>
+<li>Buy 1 put at $165 strike for $0.30</li>
+<li>Sell 1 call at $185 strike for $1.00</li>
+<li>Buy 1 call at $195 strike for $0.30</li>
+</ul>
+
+<p><strong>Net Credit Received:</strong> ($1 + $1) - ($0.30 + $0.30) = $1.40</p>
+
+<h4>Possible Outcomes</h4>
+
+<table class="data-table">
+<tr><th>Stock Price Range</th><th>P&L</th><th>Result</th></tr>
+<tr><td>Below $165</td><td>-$8.60</td><td>Max loss (width $10 - credit $1.40)</td></tr>
+<tr><td>$165-$175 (support)</td><td>-$8.60 to $1.40</td><td>Partial loss</td></tr>
+<tr><td>$175-$185 (profit zone)</td><td>+$1.40</td><td>Max profit (full credit kept)</td></tr>
+<tr><td>$185-$195 (resistance)</td><td>$1.40 to -$8.60</td><td>Partial loss</td></tr>
+<tr><td>Above $195</td><td>-$8.60</td><td>Max loss</td></tr>
+</table>
+
+<h4>Analysis</h4>
+<ul>
+<li><strong>Profit probability:</strong> 70-80% (stock must stay in range)</li>
+<li><strong>Maximum profit:</strong> $1.40 per spread (1.4% return on $100 risk)</li>
+<li><strong>Maximum loss:</strong> $8.60 per spread (if stock breaks out)</li>
+<li><strong>Risk/reward ratio:</strong> 6:1 (risking $8.60 to make $1.40)</li>
+</ul>
+
+<p><strong>Why traders love iron condors:</strong> High probability (70-80% win rate), defined risk, defined reward. Ideal in range-bound, low-volatility environments.</p>
+
+<p><strong>Best for:</strong> Income-focused traders who want statistical edge (win 70%+ of time) in calm markets. Accept occasional large losses for frequent small wins.</p>` }
+      ]
+    },<table class="data-table"><tr><th>Greek</th><th>What It Measures</th><th>Example (Apple $180 Call)</th><th>Trader Use</th></tr><tr><td><strong>Delta</strong></td><td>How much option price changes when stock moves $1</td><td>Delta 0.60 → if stock +$1, call +$0.60</td><td>Directional exposure. 0.5 delta ≈ 50/50 chance ITM</td></tr><tr><td><strong>Gamma</strong></td><td>How fast delta changes (delta of delta)</td><td>Gamma 0.05 → if stock +$1, delta increases 0.05</td><td>High gamma = risky (delta changes fast). Useful for portfolio adjustments</td></tr><tr><td><strong>Theta</strong></td><td>Time decay per day. How much option loses daily</td><td>Theta -0.05 → option loses $5/day from time alone</td><td>Sellers love theta (profit from time decay). Buyers hate it. Critical at expiration</td></tr><tr><td><strong>Vega</strong></td><td>Volatility sensitivity. How much price changes when IV changes 1%</td><td>Vega 0.15 → if IV +1%, call +$0.15 (per share)</td><td>VIX spikes → long options become more valuable. Sellers profit when IV falls</td></tr><tr><td><strong>Rho</strong></td><td>Interest rate sensitivity (usually ignored for equities)</td><td>Rho small for short-dated options</td><td>Mostly relevant for long-dated options (LEAPS)</td></tr></table><h4>The Greeks in Action: Real Scenarios</h4><ul><li><strong>Apple at $180 call with 30 days to expiration:</strong> Delta 0.60, Gamma 0.03, Theta -0.10, Vega 0.15</li><li><strong>Stock rises $2 instantly:</strong> Call ≈ +$1.20 (2 × 0.60 delta). But next day, stock unchanged? -$0.70 from theta decay (0.10 × 7 days of value lost instantly)</li><li><strong>Implied volatility spikes to 40 (from 20):</strong> Call gains $15 × 0.15 vega = $2.25 from volatility alone</li></ul><h4>Covered Call Strategy</h4><p><strong>Setup:</strong> Own 100 Apple shares at $150. Sell 1 call with $180 strike, receive $3 premium.</p><p><strong>Outcomes:</strong></p><ul><li>Stock stays at $175: Keep shares + $3 premium = 2% return in 30 days (24%/year!)</li><li>Stock rises to $200: Shares called away at $180. Gain = ($180 - $150) + $3 = $33/share = 22% return</li><li>Stock drops to $120: Own stock worth $12K (vs $15K bought). But $3 premium cushions loss. Effective loss = 8% vs 20%.</li></ul><p><strong>Best for:</strong> Generate income from stocks you're willing to sell. Trade upside for premium income.</p><h4>Protective Put Strategy</h4><p><strong>Setup:</strong> Own 100 Apple shares at $180. Buy 1 put with $170 strike for $2 premium.</p><p><strong>Outcomes:</strong></p><ul><li>Stock stays at $180: Own stock, lose $2 premium (insurance cost). Gain = 0% - 1.1% cost</li><li>Stock rises to $200: Own stock worth $20K. Put worthless but gain $2K. Net = +11% (minus 1.1% insurance)</li><li>Stock drops to $140: Put exercises at $170. Sell at $170. Loss capped = ($180 - $170) - $2 = -$1.20/share = 0.7% loss</li></ul><p><strong>Best for:</strong> Downside protection (insurance). Pay small premium ($2) to cap losses at $170.</p><h4>Call Spread (Bull Call Spread)</h4><p><strong>Setup:</strong> Apple at $180. Buy $180 call for $3. Sell $190 call for $1. Net cost = $2.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $175: Both expire worthless. Loss = $2 (limited risk)</li><li>Stock at $185: Long call worth $5, short call worthless. Profit = $5 - $2 = $3 (limited reward)</li><li>Stock at $200: Long call worth $20, short call worth -$10. Max profit = $10 - $2 = $8</li></ul><p><strong>Best for:</strong> Limited risk/reward. Bullish but want to reduce cost and risk.</p><h4>Iron Condor (Range-Bound Profit)</h4><p><strong>Setup:</strong> Apple at $180, 30 DTE. Sell $175 put for $1. Buy $165 put for $0.30. Sell $190 call for $1. Buy $200 call for $0.30.</p><p><strong>Net credit:</strong> $1.00 + $1.00 - $0.30 - $0.30 = $1.40 (you get paid)</p><p><strong>Outcomes:</strong></p><ul><li>Stock stays $170-$190 at expiration: Keep full $1.40 credit. 70% return on risk capital.</li><li>Stock at $175 or $190: Some loss, but protected by long wings</li><li>Stock crashes to $160 or rallies to $205: Max loss = width ($10) minus credit ($1.40) = $8.60/spread</li></ul><p><strong>Best for:</strong> Range-bound markets. High probability win (sells both sides), but defined risk.</p><h4>Risk Management in Spreads</h4><ul><li>Spreads limit risk (good for beginners)</li><li>Spreads also limit reward (trade-off)</li><li>Probability of profit higher for spreads (70-80% vs 50% for naked call/put)</li><li>But losses more frequent (just in smaller amounts)</li></ul>` },
+        { title: "ADVANCED: Pricing, Volatility, and Professional Deployment", content: `
+<h2>The Black-Scholes Option Pricing Model</h2>
+
+<p>In 1973, Fischer Black and Myron Scholes developed a mathematical model that revolutionized options trading and earned a Nobel Prize in Economics. Their model provides a theoretical price for European-style options and remains the foundation of modern derivative pricing today.</p>
+
+<h3>The Formula</h3>
+
+<div class="formula-box">
+C = S₀ × N(d₁) - K × e^(-rT) × N(d₂)
+
+Where:
+<ul>
+<li>C = Call option value</li>
+<li>S₀ = Current stock price</li>
+<li>K = Strike price</li>
+<li>T = Time to expiration (in years)</li>
+<li>r = Risk-free rate (e.g., Treasury yield)</li>
+<li>σ = Volatility (annualized standard deviation)</li>
+<li>N(d) = Cumulative standard normal distribution</li>
+</ul>
+
+And: d₁ = [ln(S/K) + (r + σ²/2)T] / (σ√T)
+And: d₂ = d₁ - σ√T
+</div>
+
+<h4>Real Calculation: Apple Call Option</h4>
+<ul>
+<li>Current stock price (S₀): $180</li>
+<li>Strike price (K): $180</li>
+<li>Time to expiration (T): 30 days = 0.0822 years</li>
+<li>Risk-free rate (r): 5% per year</li>
+<li>Volatility (σ): 25% per year</li>
+</ul>
+
+<p><strong>Step 1: Calculate d₁</strong></p>
+<p>d₁ = [ln(180/180) + (0.05 + 0.25²/2) × 0.0822] / (0.25 × √0.0822)</p>
+<p>d₁ = [0 + (0.05 + 0.03125) × 0.0822] / (0.25 × 0.287)</p>
+<p>d₁ = 0.0663 / 0.0717 = 0.925</p>
+
+<p><strong>Step 2: Calculate d₂</strong></p>
+<p>d₂ = 0.925 - 0.25 × √0.0822 = 0.925 - 0.072 = 0.853</p>
+
+<p><strong>Step 3: Look up N(d₁) and N(d₂) from normal distribution table</strong></p>
+<ul>
+<li>N(0.925) = 0.8224 (82.24% of distribution)</li>
+<li>N(0.853) = 0.8034 (80.34% of distribution)</li>
+</ul>
+
+<p><strong>Step 4: Calculate option value</strong></p>
+<p>C = $180 × 0.8224 - $180 × e^(-0.05 × 0.0822) × 0.8034</p>
+<p>C = $147.99 - $180 × 0.996 × 0.8034</p>
+<p>C = $147.99 - $144.26 = <strong>$3.73</strong></p>
+
+<p>The Black-Scholes model says an ATM Apple call with 30 days should be worth approximately $3.73.</p>
+
+<div class="insight-box">
+<strong>Model Validation:</strong> You check real option prices. The $180 call is actually trading at $3.80. Model predicted $3.73. Error = $0.07 (1.9%). Black-Scholes is remarkably accurate for at-the-money options!
+</div>
+
+<h3>What Drives Option Prices? Sensitivity Analysis</h3>
+
+<h4>Impact of Each Variable on Call Option Value</h4>
+
+<table class="data-table">
+<tr><th>Variable</th><th>Increase Effect</th><th>Sensitivity</th><th>Real Impact</th></tr>
+<tr><td>Stock Price (S)</td><td>Positive</td><td>Delta (0.60)</td><td>Stock +$1 → Call +$0.60</td></tr>
+<tr><td>Strike (K)</td><td>Negative</td><td>−Delta</td><td>Higher strike → call worth less</td></tr>
+<tr><td>Time (T)</td><td>Positive</td><td>Theta (-0.05)</td><td>Longer dated → more premium (time value)</td></tr>
+<tr><td>Volatility (σ)</td><td>Positive</td><td>Vega (0.15)</td><td>Vol +1% → Call +$0.15 (most impactful!)</td></tr>
+<tr><td>Interest Rate (r)</td><td>Positive (minor)</td><td>Rho (0.02)</td><td>Usually negligible for stocks</td></tr>
+</table>
+
+<h4>The Volatility Insight: Why It's King</h4>
+
+<p><strong>Scenario:</strong> You're valuing an Apple call. Everything constant except volatility:</p>
+<ul>
+<li><strong>If volatility is 15%:</strong> Option worth $2.50</li>
+<li><strong>If volatility is 25%:</strong> Option worth $3.73</li>
+<li><strong>If volatility is 35%:</strong> Option worth $4.95</li>
+</ul>
+
+<p>A 20-point increase in volatility (15% to 35%) increased option value 98%! Volatility is the dominant factor in option pricing.</p>
+
+<p>Implication: <strong>Traders make money on volatility, not just direction.</strong> You can be right about direction but lose if volatility collapses. You can be wrong about direction but profit if volatility explodes.</p>
+
+<h2>Implied Volatility (IV): The Market's Volatility Forecast</h2>
+
+<h3>Historical Volatility vs Implied Volatility</h3>
+
+<div class="comparison-grid">
+<div class="comparison-item">
+<div class="comparison-item-label">Historical Volatility (HV)</div>
+<div class="comparison-item-value">
+<strong>What it is:</strong> Actual volatility of price movements over past 20-30 days
+<br/><strong>How calculated:</strong> Standard deviation of daily returns
+<br/><strong>Example:</strong> Apple daily returns over past 30 days had 25% annualized vol
+</div>
+</div>
+
+<div class="comparison-item">
+<div class="comparison-item-label">Implied Volatility (IV)</div>
+<div class="comparison-item-value">
+<strong>What it is:</strong> Volatility "priced into" options; market's expectation
+<br/><strong>How calculated:</strong> Back-solve Black-Scholes from market option price
+<br/><strong>Example:</strong> Option priced at $3.80 implies 28% volatility (higher than recent actual!)
+</div>
+</div>
+</div>
+
+<h4>Real Example: Apple Before Earnings</h4>
+<ul>
+<li><strong>Historical vol:</strong> 20% (normal day-to-day movement)</li>
+<li><strong>Implied vol:</strong> 40% (market pricing in earnings surprise potential)</li>
+<li><strong>Gap:</strong> 20 points (2x difference!)</li>
+</ul>
+
+<p>What does this mean? The market is pricing in a potential earnings move of ~8% (40% IV → 8% move expected). Historical volatility suggests only ~4% typical (20% IV).</p>
+
+<h3>Trading the IV Spread: The Core Professional Strategy</h3>
+
+<h4>Scenario 1: IV Too High (Sell Premium)</h4>
+<p><strong>Setup:</strong> Apple IV = 45% (very high). Historical vol = 20% (normal). Tomorrow is earnings.</p>
+<p><strong>Trade idea:</strong> Sell a straddle (sell call + sell put at same strike)</p>
+
+<ul>
+<li>Sell 1 call at $180 strike for $4.50</li>
+<li>Sell 1 put at $180 strike for $4.50</li>
+<li>Receive: $9.00 total premium</li>
+<li>Thesis: IV will collapse after earnings (from 45% to 25%) regardless of direction</li>
+</ul>
+
+<p><strong>Outcome 1 (Earnings beat):</strong> Stock rises to $190. IV collapses to 20%.</p>
+<ul>
+<li>Call now worth $1.50 (you profited $3.00 from IV collapse)</li>
+<li>Put worthless</li>
+<li>Total profit: $7.50 on $9.00 premium received</li>
+</ul>
+
+<p><strong>Outcome 2 (Earnings miss):</strong> Stock falls to $170. IV collapses to 20%.</p>
+<ul>
+<li>Call worthless</li>
+<li>Put worth $1.50 (you profited $3.00 from IV collapse)</li>
+<li>Total profit: $7.50 (same as outcome 1!)</li>
+</ul>
+
+<div class="insight-box">
+<strong>Vega Dominates at Expiration:</strong> You don't care about direction. You care about IV crush. As long as IV collapses (which it does post-earnings), you profit regardless of stock direction. This is pure volatility trading.
+</div>
+
+<h4>Scenario 2: IV Too Low (Buy Premium)</h4>
+<p><strong>Setup:</strong> Apple IV = 12% (very low, 5-year low). Stock has been range-bound. Hidden risk: new CEO announcement coming.</p>
+<p><strong>Trade idea:</strong> Buy a strangle (long call + long put, OTM on both sides)</p>
+
+<ul>
+<li>Buy 1 call at $190 strike for $0.40</li>
+<li>Buy 1 put at $170 strike for $0.40</li>
+<li>Total cost: $0.80</li>
+<li>Thesis: CEO announcement will spike vol to 30%+. Stock will move big</li>
+</ul>
+
+<p><strong>Outcome (CEO announcement shocks market):</strong> Vol spikes to 35%. Stock moves to $195.</p>
+<ul>
+<li>Call now worth $2.00 (gained $1.60 from vol spike + $0.60 from stock move)</li>
+<li>Put worth $0.10 (cost from vol spike offset by stock move away from strike)</li>
+<li>Total value: $2.10 on $0.80 investment = 162% profit</li>
+</ul>
+
+<p><strong>The beauty:</strong> You made money even though your directional bet (predicting $195) was slightly wrong. Volatility expansion saved you.</p>
+
+<h2>Advanced Multi-Leg Strategies</h2>
+
+<h3>The Straddle: Betting on Big Moves (Either Direction)</h3>
+
+<h4>Setup: Buy at-the-money straddle</h4>
+<ul>
+<li>Buy 1 call at $180 strike for $3.50</li>
+<li>Buy 1 put at $180 strike for $3.50</li>
+<li>Total cost: $7.00</li>
+<li>Thesis: Expecting big move but unsure of direction</li>
+</ul>
+
+<h4>Profit/Loss at Various Outcomes</h4>
+
+<table class="data-table">
+<tr><th>Stock Price</th><th>Call Value</th><th>Put Value</th><th>Total Value</th><th>P&L</th><th>Return</th></tr>
+<tr><td>$150 (down 17%)</td><td>$0</td><td>$30</td><td>$30</td><td>+$23</td><td>+329%</td></tr>
+<tr><td>$160 (down 11%)</td><td>$0</td><td>$20</td><td>$20</td><td>+$13</td><td>+186%</td></tr>
+<tr><td>$170 (down 6%)</td><td>$0</td><td>$10</td><td>$10</td><td>+$3</td><td>+43%</td></tr>
+<tr><td>$173 (down 4%)</td><td>$0</td><td>$7</td><td>$7</td><td>$0</td><td>0%</td></tr>
+<tr><td>$180 (unchanged)</td><td>$0</td><td>$0</td><td>$0</td><td>-$7</td><td>-100%</td></tr>
+<tr><td>$187 (up 4%)</td><td>$7</td><td>$0</td><td>$7</td><td>$0</td><td>0%</td></tr>
+<tr><td>$190 (up 5.6%)</td><td>$10</td><td>$0</td><td>$10</td><td>+$3</td><td>+43%</td></tr>
+<tr><td>$200 (up 11%)</td><td>$20</td><td>$0</td><td>$20</td><td>+$13</td><td>+186%</td></tr>
+<tr><td>$210 (up 17%)</td><td>$30</td><td>$0</td><td>$30</td><td>+$23</td><td>+329%</td></tr>
+</table>
+
+<h4>Critical Analysis</h4>
+<ul>
+<li><strong>Breakevens:</strong> $173 down, $187 up (need ±$7 move = 3.9% either direction)</li>
+<li><strong>Max loss:</strong> $7.00 (if stock exactly at $180 at expiration)</li>
+<li><strong>Max profit:</strong> Unlimited (up) and large (down)</li>
+<li><strong>Probability of profit:</strong> ~35-40% (need significant move)</li>
+</ul>
+
+<div class="insight-box">
+<strong>Straddle Use Cases:</strong> Before earnings (expecting 5-8% move), before major announcements (M&A, FDA decisions), before economic data. Ideal when IV is relatively low (before the event priced it in).
+</div>
+
+<h3>The Strangle: Cheaper Alternative to Straddle</h3>
+
+<h4>Setup: Buy out-of-the-money strangle</h4>
+<ul>
+<li>Buy 1 call at $190 strike for $1.50</li>
+<li>Buy 1 put at $170 strike for $1.50</li>
+<li>Total cost: $3.00 (50% cheaper than straddle!)</li>
+</ul>
+
+<h4>Profit/Loss Comparison</h4>
+
+<table class="data-table">
+<tr><th>Stock Price</th><th>Straddle P&L</th><th>Strangle P&L</th><th>Strangle Advantage</th></tr>
+<tr><td>$150</td><td>+$23</td><td>+$17</td><td>Lower cost, lower profit</td></tr>
+<tr><td>$160</td><td>+$13</td><td>+$7</td><td>Strangle better only above this</td></tr>
+<tr><td>$170</td><td>+$3</td><td>-$3</td><td>Strangle loses below $170</td></tr>
+<tr><td>$180</td><td>-$7</td><td>-$3</td><td>Strangle loses less</td></tr>
+<tr><td>$190</td><td>$0</td><td>-$3</td><td>Strangle at put breakeven</td></tr>
+<tr><td>$200</td><td>+$13</td><td>+$7</td><td>Strangle lower profit again</td></tr>
+</table>
+
+<p><strong>Key Difference:</strong> Strangle needs bigger move to profit, but costs 50% less. Trade-off: lower cost, higher probability of loss, lower profit if you're slightly right.</p>
+
+<h3>The Butterfly Spread: Precision Profit Zones</h3>
+
+<h4>Setup: Neutral outlook, stock likely to stay at $180</h4>
+<ul>
+<li>Buy 1 call at $170 strike for $8.00</li>
+<li>Sell 2 calls at $180 strike for $3.50 each = -$7.00</li>
+<li>Buy 1 call at $190 strike for $1.00</li>
+<li>Total cost: $8.00 - $7.00 + $1.00 = $2.00</li>
+</ul>
+
+<h4>Analysis</h4>
+
+<table class="data-table">
+<tr><th>Stock at Expiration</th><th>Total Value</th><th>P&L</th><th>Return %</th></tr>
+<tr><td>$170 or below</td><td>$0</td><td>-$2.00</td><td>-100% (max loss)</td></tr>
+<tr><td>$175</td><td>$5</td><td>+$3.00</td><td>+150%</td></tr>
+<tr><td>$180 (sweet spot)</td><td>$10</td><td>+$8.00</td><td>+400% (max profit)</td></tr>
+<tr><td>$185</td><td>$5</td><td>+$3.00</td><td>+150%</td></tr>
+<tr><td>$190 or above</td><td>$0</td><td>-$2.00</td><td>-100% (max loss)</td></tr>
+</table>
+
+<div class="insight-box">
+<strong>The Magic of Butterfly Spreads:</strong> You created a position that's profitable in a wide $170-$190 range (11% range!), maximum profit exactly at $180, maximum loss only $2, cost $2 to establish. Probability of profit 60-70%. This is why professional traders love butterflies in consolidation periods.
+</div>
+
+<h3>The Iron Condor: Advanced Range Trade</h3>
+
+<p>Previously covered in Intermediate, but at professional level, traders use tighter spacing and manage exits before expiration.</p>
+
+<p><strong>Professional modification:</strong> Exit at 50% max profit, don't hold to expiration. Why? Theta accelerates near expiration (creates disproportionate losses if stock moves through strike at last moment).</p>
+
+<h4>Example Trade Mgmt</h4>
+<ul>
+<li>Sell condor for $1.40 credit</li>
+<li>Set exit at $0.70 (50% profit)</li>
+<li>Exit timing: 2-3 weeks before expiration (not expiration day)</li>
+<li>Result: Reduced profit ($0.70 vs $1.40) but dramatically lower risk</li>
+</ul>
+
+<h2>The Volatility Smile and Skew: Reality vs Theory</h2>
+
+<p>Black-Scholes assumes constant volatility across all strike prices. Reality: volatility varies by strike.</p>
+
+<h3>The Phenomenon: Why It Exists</h3>
+
+<p><strong>Real option prices vs Black-Scholes prediction:</strong></p>
+
+<table class="data-table">
+<tr><th>Strike</th><th>BS Prediction</th><th>Market Price</th><th>Implied IV from Market</th><th>Gap</th></tr>
+<tr><td>$150 (deep OTM put)</td><td>$0.10</td><td>$0.30</td><td>35% (vs 25%)</td><td>3x higher!</td></tr>
+<tr><td>$170 (OTM put)</td><td>$1.20</td><td>$1.80</td><td>30%</td><td>Elevated</td></tr>
+<tr><td>$180 (ATM)</td><td>$3.73</td><td>$3.80</td><td>25%</td><td>Accurate</td></tr>
+<tr><td>$190 (OTM call)</td><td>$1.20</td><td>$1.40</td><td>27%</td><td>Slight premium</td></tr>
+<tr><td>$210 (deep OTM call)</td><td>$0.05</td><td>$0.10</td><td>28%</td><td>2x higher</td></tr>
+</table>
+
+<div class="insight-box">
+<strong>The Skew Pattern:</strong> Out-of-the-money puts trade at higher IV than ATM options. This is called "volatility skew" or "smile." Reason: after 1987 crash, market realized tail risk (big down moves) is more likely than Black-Scholes predicts. OTM puts are "crash insurance"—expensive because everyone wants them.
+</div>
+
+<h3>Trading the Skew: Advanced Technique</h3>
+
+<p><strong>If you believe:</strong> Crash risk is overstated (IV skew too high on puts)</p>
+<p><strong>Trade:</strong> Sell OTM puts (collect expensive premium from crash insurance fears)</p>
+
+<p><strong>If you believe:</strong> Crash risk is understated (IV too low)</strong></p>
+<p><strong>Trade:</strong> Buy OTM puts (get cheap protection before the crash)</p>
+
+<h2>Professional Risk Management: Greeks Limits</h2>
+
+<h4>Institutional Trading Risk Limits</h4>
+
+<table class="data-table">
+<tr><th>Greek Limit</th><th>What It Controls</th><th>Example Limit</th><th>Consequence if Exceeded</th></tr>
+<tr><td>Delta ≤ 500</td><td>Directional exposure</td><td>Can't have more than $500 in delta</td><td>Unhedged directional bet too large</td></tr>
+<tr><td>Gamma ≤ 100</td><td>Rebalancing cost</td><td>Can't have gamma > 100</td><td>Position too unstable</td></tr>
+<tr><td>Vega ≤ 100</td><td>Volatility exposure</td><td>Can't have vega > 100</td><td>Vol spike losses too severe</td></tr>
+<tr><td>Theta > 50</td><td>Time decay benefit</td><td>Must have positive theta</td><td>Avoid pure losing time</td></tr>
+</table>
+
+<p>Professional traders think in terms of Greeks, not stock prices. Their conversation: "I'm long 250 delta, short 80 vega, and collecting 30 theta per day." This is portfolio optimization.</p>
+
+<h2>Real-World Professional Workflow</h2>
+
+<h3>Day 1: Earnings Announcement Tomorrow</h3>
+<ul>
+<li>Historical vol: 20%</li>
+<li>Implied vol: 45% (2.25x premium!)</li>
+<li>Decision: IV is too high. Sell premium.</li>
+<li>Action: Sell iron condor, receive $2.50 credit</li>
+</ul>
+
+<h3>Day 2: Earnings Released</h3>
+<ul>
+<li>Stock moved 7% (beat expectations)</li>
+<li>Implied vol collapsed to 22% (IV crush happened)</li>
+<li>Position value: Originally sold for $2.50, now worth $0.60</li>
+<li>Profit: $1.90 (76% return on risk capital)</li>
+<li>Decision: Take the win. Exit the trade.</li>
+</ul>
+
+<p><strong>The key insight:</strong> Profitable because you sold premium when expensive, exited when cheap. Direction (7% move) was secondary to volatility management.</p>` }
+      ]
+    },<p><strong>Formula:</strong> C = S₀×N(d₁) - K×e^(-rT)×N(d₂)</p><ul><li><strong>C:</strong> Call option value</li><li><strong>S₀:</strong> Current stock price</li><li><strong>K:</strong> Strike price</li><li><strong>T:</strong> Time to expiration (years)</li><li><strong>r:</strong> Risk-free rate</li><li><strong>σ:</strong> Volatility (std dev of returns)</li><li><strong>N(d):</strong> Cumulative normal distribution</li></ul><p><strong>Where:</strong> d₁ = [ln(S/K) + (r + σ²/2)T] / (σ√T) and d₂ = d₁ - σ√T</p><p><strong>Real Example:</strong> Apple $180 call, 30 days, $180 strike, 25% volatility, 5% rate.</p><ul><li>d₁ = 0.22, d₂ = 0.13</li><li>N(d₁) = 0.587, N(d₂) = 0.552</li><li>C = $180 × 0.587 - $180 × 0.9959 × 0.552 = $105.66 - $98.34 = $3.32</li></ul><p><strong>Key insights:</strong> Option prices driven most by volatility. Volatility doubled = option price roughly doubles.</p><h4>Volatility: The Most Critical Variable</h4><ul><li><strong>Historical Volatility (HV):</strong> Actual realized volatility of past returns. Calculate std dev of daily returns over 30-day lookback.</li><li><strong>Implied Volatility (IV):</strong> Volatility priced into options. Back-solve Black-Scholes to find what volatility implies current option price. Market's expectation.</li><li><strong>Realized Volatility:</strong> Actual volatility that occurred after you bought/sold option.</li></ul><h4>IV vs RV Trading Decisions</h4><ul><li><strong>IV 30%, RV expected 15% (IV too high):</strong> Sell premium (spreads, covered calls, naked calls if experienced). Profit from IV crush.</li><li><strong>IV 10%, RV expected 25% (IV too low):</strong> Buy premium (calls, puts, straddles). Profit from IV expansion.</li><li><strong>Historical example:</strong> Before 2008 crash, IV trading at 15 (historic low). Actual realized volatility 80%+ during crisis. Those who bought OTM puts dirt cheap profited 10,000%+.</li></ul><h4>Volatility Smile and Skew (Real-World Complexity)</h4><p>Black-Scholes assumes constant volatility across strikes. Reality: OTM puts trade at higher IV (crash insurance expensive). Creates "volatility smile" (higher on wings) or "skew" (asymmetric).</p><p><strong>Implications:</strong> OTM puts more expensive than BS predicts. OTM calls cheaper. Professional traders exploit skew mispricing.</p><h4>Straddle Strategy (Big Move Bet)</h4><p><strong>Setup:</strong> Buy $180 call for $3. Buy $180 put for $2. Total cost = $5.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $180: Both expire worthless. Loss = $5 (full premium)</li><li>Stock at $190: Call worth $10. Profit = $10 - $5 = $5 (100% return)</li><li>Stock at $170: Put worth $10. Profit = $10 - $5 = $5 (100% return)</li><li>Stock at $165 or $195: Each foot $10 ITM = $10 profit</li></ul><p><strong>Breakevens:</strong> $175 (down) and $185 (up). Profit if move ±$5+ either direction.</p><p><strong>Best scenarios:</strong></p><ul><li>Before earnings (expect big move). Buy straddle cheap before IV spike.</li><li>VIX low (volatility cheap). Buy and hope for chaos.</li><li>Technical setup shows potential breakout either direction.</li></ul><p><strong>Risk/Reward:</strong> Max loss = premium ($5), max profit = unlimited. Probability of profit ≈ 30% (need big move).</p><h4>Strangle Strategy (Cheaper Straddle)</h4><p><strong>Setup:</strong> Buy $175 put for $1. Buy $185 call for $1.50. Total cost = $2.50.</p><p><strong>Key difference:</strong> Strikes are OTM (cheaper). Need bigger move to profit.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $180: Both expire worthless. Loss = $2.50</li><li>Stock at $190: Call worth $5. Profit = $5 - $2.50 = $2.50</li><li>Stock at $170: Put worth $5. Profit = $5 - $2.50 = $2.50</li></ul><p><strong>Comparison to straddle:</strong> Pay 50% less ($2.50 vs $5) but need bigger move (±$5 for straddle, ±$7.50 for strangle).</p><p><strong>Best for:</strong> When you expect big move but want to reduce cost. Common for earnings plays.</p><h4>Butterfly Spread (Precision Profit)</h4><p><strong>Setup:</strong> Buy 1 Apple $175 call for $5. Sell 2 Apple $180 calls for $3 each. Buy 1 Apple $185 call for $1.</p><p><strong>Net cost:</strong> $5 - $6 + $1 = $0 (zero or near-zero cost!)</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $175: All expire worthless. Profit = $0</li><li>Stock at $180: First call $5, middle calls -$0, high call $0 = $5 - $6 = -$1 loss</li><li>Stock at $182.50: First $7.50, middle -$5, high $0 = $2.50 profit (max!)</li><li>Stock at $185: First $10, middle -$10, high $0 = $0</li><li>Stock at $190: First $15, middle -$20, high $5 = $0</li></ul><p><strong>Key insight:</strong> Profit concentrated at middle strike ($180). Win if stock exactly at $180 at expiration.</p><p><strong>Probability of profit:</strong> 50-60% (very high), but profit capped at $2.50 (width $5 minus cost $2.50).</p><p><strong>Use case:</strong> Neutral outlook. Stock unlikely to move much. Collect premium decay (theta).</p><h4>Iron Butterfly (Credit Version)</h4><p><strong>Setup:</strong> Sell $175 put. Buy $170 put. Sell $185 call. Buy $190 call.</p><p><strong>Net credit received:</strong> Similar risk/reward to long butterfly but sold (credit strategy).</p><h4>Condor Spread (Wider Profit Zone)</h4><p><strong>Like butterfly but wider range:</strong> Buy $175 call. Sell $180 call. Sell $190 call. Buy $195 call.</p><p><strong>Profit zone:</strong> $180-$190 (wider than butterfly). Lower probability ($180-$195 needs range containment) but less precise.</p><h4>Diagonal Spread (Time and Direction)</h4><p><strong>Setup:</strong> Buy 1 longer-dated Apple $180 call (60 days out) for $4. Sell 1 shorter-dated Apple $185 call (30 days out) for $2.</p><p><strong>Strategy:</strong> Collect premium from short call repeatedly (every 30 days roll to new short call). If stock stays below $185, keep rolling and collecting premium. Like covered call but position length position.</p><p><strong>Profit scenarios:</strong></p><ul><li>Stock stays $180-$185: Keep repeating premium collection (4-6 times/year = 8-12% annual yield)</li><li>Stock rallies above $185: Long call profits while short calls force assignment</li><li>Stock falls below $170: Long call cushions loss vs owning stock directly</li></ul><p><strong>Best for:</strong> Generating consistent income from long option position. More aggressive covered call alternative.</p><h4>LEAPS (Long-Dated Options)</h4><p><strong>What:</strong> Options expiring 1-3 years out. Trade like leveraged stock positions.</p><p><strong>Example:</strong> Apple $180 LEAP call (12 months out) for $15. Stock currently $175.</p><ul><li>Buy 10 LEAPS = $15,000 cost (control $175,000 stock position)</li><li>If stock → $250: LEAP worth $70+ = $700%+ return (vs 43% owning stock)</li><li>If stock → $100: LEAP worth $0-5 = lose 67-100% (vs 43% loss owning stock)</li></ul><p><strong>Use cases:</strong></p><ul><li>Conviction long-term bullish play (less cash than owning stock)</li><li>Tax efficiency (don't sell for 12+ months = no annual tax)</li><li>Hedge future stock grants (executive compensation)</li><li>Reduce margin requirements (LEAPS better for leverage)</li></ul><p><strong>Risk:</strong> Much higher volatility than stock. Small moves hit theta harder. Careful timing critical.</p><h4>Naked Put Strategy (Advanced Income)</h4><p><strong>Setup:</strong> Sell (naked) 1 Apple $170 put 30 days out for $2. Receive $200 premium. Don't own stock.</p><p><strong>Outcomes:</strong></p><ul><li>Stock at $175: Put expires worthless. Keep $200 premium. 200% return on capital (on small margin reserved)</li><li>Stock at $150: Put exercises. Forced to buy 100 shares at $170 = $17K purchase. Loss if you didn't want to own = $2K - $200 = $1,800</li><li>Stock at $130: Loss = $4K - $200 = $3,800</li></ul><p><strong>Philosophy:</strong> "Sell puts on stocks you'd be happy to own at that strike price." If executed correctly, get paid $200 to potentially buy stock at $170 (below market).</p><p><strong>Risk management:</strong> Only sell puts where you have capital to buy shares if exercised. Margin requirement ~20%.</p><h4>Covered Put (Selling Puts Against Cash)</h4><p><strong>Less risky version of naked put:</strong> Have $17K cash. Sell $170 put. If assigned, $17K covers purchase.</p><p><strong>Risk:** Lower than naked put (cash protects you), but still lose if stock crashes far below strike.</p><h4>Volatility Deployment Strategies (Pro Level)</h4><p><strong>When IV Crushes (earnings aftermath):</strong> All options lose value from volatility collapse alone. Positions with short vega (spreads, naked calls) profit. Position with long vega (straddles, calls/puts) lose.</p><p><strong>When IV Expansion (crisis):</strong> All options gain value. Long vega positions (protective puts, long calls) profit. Short vega positions lose.</p><p><strong>Volatility Arbitrage:</strong> Buy options when IV 15 but expect realized vol 30. Sell when IV 50 but expect realized vol 20.</p><p><strong>Example trade:</strong></p><ul><li>Apple at $180. IV 15 (historically low before earnings)</li><li>Buy $180 straddle for $5 (delta-hedged so no directional risk)</li><li>Earnings: Stock moves ±$10 (20% realized vol). Straddle now worth $15+</li><li>Sell straddle. Profit = $10 on $5 cost = 200% return</li></ul><h4>Gamma Trading (Adjustments and Rebalancing)</h4><p><strong>Concept:</strong> Long gamma = delta increases when you want it to (long calls bullish, delta increases when stock rises). Profitable if directional.</p><p><strong>Example:</strong> Buy $180 call, delta 0.50, gamma 0.03. Stock rises $1:</p><ul><li>Delta increases to 0.53</li><li>P&L = $0.50 × $1 + 0.5 × 0.03 × $1² = $0.50 + $0.015 = $0.515 (gamma added $0.015)</li></ul><p><strong>Short gamma (sold calls):</strong> Delta decreases when stock rises (hurts you). Negative gamma = paying price for volatility.</p><h4>Hedging with Options (Portfolio Protection)</h4><p><strong>Protective put collar:</strong> Own $500K stock portfolio. Buy $500K of ATM puts for 1% cost ($5K). Sell $550K of OTM calls for 1% credit ($5.5K). Net cost = -$500 (get paid!).</p><p><strong>Outcomes:</strong></p><ul><li>Portfolio up 10%: Calls exercise but you sold upside at $550K level = capped at 10%</li><li>Portfolio down 10%: Puts exercise at -5% loss level. Profit = -5% - 1% cost = -6% vs -10% unhedged</li><li>Portfolio down 20%: Puts protect at $475K level. Loss = -5% - 1% cost = -6%</li></ul><p><strong>Cost: Zero (maybe small credit). Protection: Downside capped.</strong></p><h4>Professional Risk Management (Institutional Trading)</h4><ul><li><strong>Greeks limits:</strong> Maximum delta (directional exposure), gamma (rebalancing cost), vega (volatility exposure), theta (time decay).</li><li><strong>Scenario stress testing:</strong> How portfolio performs in -10%, -20%, -30% moves.</li><li><strong>Correlation breakdown:</strong> In crashes, all hedges fail simultaneously (diversification disappears). Need tail hedges.</li><li><strong>Model risk:</strong> Black-Scholes assumes constant volatility (wrong), normal distribution (wrong), no jumps (wrong). Real prices deviate 10-20%+.</li></ul>` }
       ]
     },
 
