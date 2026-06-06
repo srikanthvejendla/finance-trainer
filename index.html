@@ -56,15 +56,15 @@
   <script>
     // Ensure app initializes even if DOMContentLoaded already fired
     function ensureInit(){
-      if(typeof window.appInitialized === 'undefined'){
+      if(typeof window.appInitialized === 'undefined' && typeof window.initApp !== 'undefined'){
         window.appInitialized = true;
-        if(typeof init === 'function') init();
+        window.initApp.init();
       }
     }
     if(document.readyState === 'loading'){
       window.addEventListener('DOMContentLoaded', ensureInit);
     } else {
-      ensureInit();
+      setTimeout(ensureInit, 0);
     }
   </script>
 </body>
