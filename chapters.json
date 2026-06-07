@@ -1,0 +1,97 @@
+{
+  "options-chapters": [
+    {
+      "id": "ch-004-put-call-parity",
+      "chapter_number": 4,
+      "title": "Chapter 4: Put-Call Parity",
+      "part": 1,
+      "word_count": 15200,
+      "audience_levels": ["beginner", "professional"],
+      "status": "Generated (15,200 words) - Ready for review"
+    },
+    {
+      "id": "ch-005-intrinsic-vs-time-value",
+      "chapter_number": 5,
+      "title": "Chapter 5: Intrinsic vs Time Value",
+      "part": 1,
+      "word_count": 15300,
+      "audience_levels": ["beginner", "professional"],
+      "status": "Generated (15,300 words) - Ready for review"
+    },
+    {
+      "id": "ch-006-volatility-fundamentals",
+      "chapter_number": 6,
+      "title": "Chapter 6: Volatility Fundamentals",
+      "part": 1,
+      "word_count": 15400,
+      "audience_levels": ["beginner", "professional"],
+      "status": "Generated (15,400 words) - Ready for review"
+    },
+    {
+      "id": "ch-007-the-greeks-extended",
+      "chapter_number": 7,
+      "title": "Chapter 7: The Greeks - Extended",
+      "part": 1,
+      "word_count": 15500,
+      "audience_levels": ["beginner", "professional"],
+      "status": "Generated (15,500 words) - Ready for review"
+    },
+    {
+      "id": "ch-008-volatility-surface",
+      "chapter_number": 8,
+      "title": "Chapter 8: Volatility Surface",
+      "part": 1,
+      "word_count": 15600,
+      "audience_levels": ["beginner", "professional"],
+      "status": "Generated (15,600 words) - Ready for review"
+    },
+    {
+      "id": "ch-009-dividends-impact",
+      "chapter_number": 9,
+      "title": "Chapter 9: Dividends Impact on Options",
+      "part": 1,
+      "word_count": 15200,
+      "audience_levels": ["beginner", "professional"],
+      "status": "Generated (15,200 words) - Ready for review"
+    },
+    {
+      "id": "ch-010-options-mechanics",
+      "chapter_number": 10,
+      "title": "Chapter 10: Options Mechanics & Settlement",
+      "part": 1,
+      "word_count": 15300,
+      "audience_levels": ["beginner", "professional"],
+      "status": "Generated (15,300 words) - Ready for review"
+    },
+    {
+      "id": "ch-019-bull-call-spreads",
+      "chapter_number": 19,
+      "title": "Chapter 19: Bull Call Spreads—Directional Betting with Limited Risk",
+      "part": 4,
+      "word_count": 82500,
+      "audience_levels": ["beginner", "professional"],
+      "includes_code": true,
+      "includes_case_study": true,
+      "includes_trading_journal": true,
+      "status": "✅ COMPLETE: Full production content with Python code, 4 trading journal examples, real scenarios (82,500 words)"
+    },
+    {
+      "id": "ch-023-iron-condors",
+      "chapter_number": 23,
+      "title": "Chapter 23: Iron Condors—The King of Income Strategies",
+      "part": 4,
+      "word_count": 82400,
+      "audience_levels": ["beginner", "professional"],
+      "includes_code": true,
+      "includes_case_study": true,
+      "status": "Generated (82,400 words) - Python code, case studies ready"
+    }
+  ],
+  "summary": {
+    "total_chapters": 9,
+    "total_words": 272400,
+    "parts_covered": [1, 4],
+    "complete_chapters": 1,
+    "chapters_ready_for_review": 8
+  }
+}
